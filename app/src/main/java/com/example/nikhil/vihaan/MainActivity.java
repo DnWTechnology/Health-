@@ -75,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
                         return true;
+
+                    case R.id.nav_abt_vitals:
+                        startActivity(new Intent(MainActivity.this,AboutVitalSigns.class));
                 }
 
 
