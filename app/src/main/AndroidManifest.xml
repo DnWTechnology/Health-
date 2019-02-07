@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tempActivity"></activity>
+        <activity android:name=".AboutVitalSigns"></activity>
+        <activity android:name=".tempActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".RemedyActivity" />
         <activity
@@ -25,7 +26,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".VitalSignsActivity" />
         <activity android:name=".MedicationsActivity" />
-        <activity android:name=".ConsultActivity"></activity>
+        <activity android:name=".ConsultActivity" />
     </application>
 
 </manifest>

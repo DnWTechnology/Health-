@@ -2,41 +2,49 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group android:id="@+id/menu_top"
+    <group
+        android:id="@+id/menu_top"
         android:checkableBehavior="single">
-    <item
-        android:id="@+id/nav_vital_signs"
-        android:icon="@drawable/vital_icon"
-        android:orderInCategory="100"
-        android:title="Vital Signs"
+        <item
+            android:id="@+id/nav_vital_signs"
+            android:icon="@drawable/vital_icon"
+            android:orderInCategory="100"
+            android:title="Vital Signs"
 
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/nav_medication"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_local_hospital_black"
-        android:title="Medications"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/nav_consult"
-        android:orderInCategory="100"
-        android:icon="@drawable/consult_icon"
-        android:title="Consult a Doctor"
-        app:showAsAction="never" />
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/nav_medication"
+            android:icon="@drawable/ic_local_hospital_black"
+            android:orderInCategory="100"
+            android:title="Medications"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/nav_consult"
+            android:icon="@drawable/consult_icon"
+            android:orderInCategory="100"
+            android:title="Consult a Doctor"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/nav_abt_vitals"
+            android:icon="@drawable/settings_icon"
+            android:orderInCategory="100"
+            android:title="About Vital Signs"
+            app:showAsAction="never" />
     </group>
-    <group android:id="@+id/menu_bottom"
+    <group
+        android:id="@+id/menu_bottom"
         android:checkableBehavior="single">
-    <item
-        android:id="@+id/nav_logout"
-        android:orderInCategory="100"
-        android:icon="@drawable/logout_icon"
-        android:title="Logout"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/nav_settings"
-        android:orderInCategory="100"
-        android:icon="@drawable/settings_icon"
-        android:title="Settings"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout_icon"
+            android:orderInCategory="100"
+            android:title="Logout"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/settings_icon"
+            android:orderInCategory="100"
+            android:title="Settings"
+            app:showAsAction="never" />
     </group>
 </menu>
