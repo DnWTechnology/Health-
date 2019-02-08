@@ -1,6 +1,8 @@
 package com.example.nikhil.vihaan;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -25,10 +27,16 @@ public class LoginActivity extends AppCompatActivity {
             new AuthUI.IdpConfig.PhoneBuilder().build(),
             new AuthUI.IdpConfig.GoogleBuilder().build());
 
+    SharedPreferences sharedPref;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        sharedPref = getSharedPreferences("doctor",Context.MODE_PRIVATE);
+
 
         userLogin=findViewById(R.id.user_login);
         docLogin=findViewById(R.id.doc_login);
@@ -68,7 +76,13 @@ public class LoginActivity extends AppCompatActivity {
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
+
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("isDoctor",false);
+                editor.commit();
+
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                finishAffinity();
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 // ...
             } else {
@@ -83,9 +97,18 @@ public class LoginActivity extends AppCompatActivity {
             IdpResponse response = IdpResponse.fromResultIntent(data);
 
             if (resultCode == RESULT_OK) {
+
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("isDoctor",true);
+                editor.commit();
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                Toast.makeText(this, "DOCTORRR", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "DOCTORRR", Toast.LENGTH_SHORT).show();
+                //MainActivity.isDoctor=true;
+                finishAffinity();
+                startActivity(new Intent(LoginActivity.this,DoctorActivity.class));
+
+
                 // ...
             } else {
                 // Sign in failed. If response is null the user canceled the
