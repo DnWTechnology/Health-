@@ -89,9 +89,9 @@ public class RecordVitalSigns extends AppCompatActivity {
 //            Agg = Integer.parseInt(Data.getage(user));
 //            Gen = Integer.parseInt(Data.getgender(user));
 
-        Hei = 170;
-        Wei = 60;
-        Agg = 19;
+        Hei = 178;
+        Wei = 78;
+        Agg = 20;
         Gen = 1;
 
         if (Gen == 1) {
@@ -125,6 +125,7 @@ public class RecordVitalSigns extends AppCompatActivity {
     //your activity to start interacting with the user.
     @Override
     public void onResume() {
+
         super.onResume();
 
         wakeLock.acquire();
@@ -134,6 +135,9 @@ public class RecordVitalSigns extends AppCompatActivity {
         camera.setDisplayOrientation(90);
 
         startTime = System.currentTimeMillis();
+
+
+
     }
 
     //call back the frames then release the camera + wakelock and Initialize the camera to null
