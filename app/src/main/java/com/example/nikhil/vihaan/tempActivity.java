@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class tempActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button b1,b2,b3,b4,b5;
+    Button b1,b2,b3,b4,b5,b6,b7,b8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +26,17 @@ public class tempActivity extends AppCompatActivity implements View.OnClickListe
         b4 = findViewById(R.id.oxy);
         b4.setOnClickListener(this);
 
-        b5 = findViewById(R.id.tal);
+        b5 = findViewById(R.id.hoxy);
         b5.setOnClickListener(this);
 
+        b6 = findViewById(R.id.tal);
+        b6.setOnClickListener(this);
 
+        b7 = findViewById(R.id.lbr);
+        b7.setOnClickListener(this);
 
+        b8 = findViewById(R.id.lr);
+        b8.setOnClickListener(this);
 
 
     }
@@ -64,9 +70,28 @@ public class tempActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.tal:
-                Intent tal = new Intent(this,RemedyActivity.class);
-                tal.putExtra("title","Tachypnea");
-                startActivity(tal);
+                Intent Info2 = new Intent(this, InfoActivity.class);
+                Info2.putExtra("title", "Tachypnea");
+                startActivity(Info2);
+                break;
+
+            case R.id.lbr:
+                Intent Info1 = new Intent(this, InfoActivity.class);
+                Info1.putExtra("title", "Bradypnea");
+                startActivity(Info1);
+                break;
+
+            case R.id.lr:
+                Intent lr = new Intent(this,RemedyActivity.class);
+                lr.putExtra("title","Low Heart Rate");
+                startActivity(lr);
+                break;
+
+            case R.id.hoxy:
+
+                Intent Info = new Intent(this, InfoActivity.class);
+                Info.putExtra("title", "Hyperoxia");
+                startActivity(Info);
                 break;
 
 

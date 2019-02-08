@@ -23,19 +23,31 @@ public class InfoActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_info);
 
+        String title = getIntent().getStringExtra("title");
+
 
         lv = findViewById(R.id.info);
         ttl = findViewById(R.id.title);
-        ttl.setText(getIntent().getStringExtra("title"));
+        ttl.setText(title);
 
-        ArrayList<Info> data = getInfo();
+        ArrayList<Info> data=new ArrayList<>();
+
+        switch (title){
+            case "Tachypnea": data = getTachypneaInfo();
+            break;
+            case "Bradypnea": data = getBradypneaInfo();
+            break;
+            case "Hyperoxia": data = getHyperoxiaInfo();
+        }
+
+
         mAdapter = new InfoAdapter(this,data);
 
         lv.setAdapter(mAdapter);
 
     }
 
-    ArrayList<Info> getInfo(){
+    ArrayList<Info> getTachypneaInfo(){
         ArrayList<Info> data = new ArrayList<>();
 
         data.add(new Info("","Tachypnea is defined as an elevated respiratory rate, or more simply, breathing that is more rapid than normal. A normal respiratory rate can vary depending on age and activity but is usually between 12 and 20 breaths per minute for a resting adult. In contrast to the term hyperpnea which refers to rapid deep breathing, tachypnea refers to rapid, shallow breathing. Let's look at the potential causes of tachypnea, " +
@@ -80,6 +92,108 @@ public class InfoActivity extends AppCompatActivity {
                 "The treatment of tachypnea depends primarily on determining and correcting the underlying cause.\n" +
                         "Consult your doctor for a better understanding"));
         return data;
+
+
+    }
+
+    ArrayList<Info> getBradypneaInfo(){
+        ArrayList<Info>data=new ArrayList<>() ;
+
+        data.add(new Info("","Bradypnea is an abnormally slow breathing rate.\n" +
+                "\n" +
+                "The normal breathing rate for an adult is typically between 12 and 20 breaths per minute. A respiration rate below 12 or over 25 breaths " +
+                "per minute while resting may signal an underlying health problem."));
+
+        data.add(new Info("Age ranges\n",
+                "Age 0–1 year  ->   < 30 breaths per minute\n" +
+                "Age 1–3 years  ->   < 25 breaths per minute\n" +
+                "Age 3–12 years  ->   < 20 breaths per minute\n" +
+                "Age 12–50 years  ->   < 12 breaths per minute\n" +
+                "Age 50 and up  ->   <    13 breaths per minute"));
+
+
+        data.add(new Info("Symptoms\n" ,
+                "1. Dizziness\n" +
+                "2. Near-fainting or fainting\n" +
+                "3. Fatigue\n" +
+                "4. Weakness\n" +
+                "5. Chest pains\n" +
+                "6. Shortness of breath\n" +
+                "7. Memory impairment or confusion\n" +
+                "8. Tiring easily during any physical activity"));
+
+        data.add(new Info("Causes\n",
+                "1. Degeneration of heart tissue because of aging\n" +
+                "2. Damage to tissues in the heart from heart attack or heart disease\n" +
+                "3. High blood pressure or hypertension\n" +
+                "4. Congenital heart defect which is disorder present at birth\n" +
+                "5. Heart tissue infection also known as myocarditis - Complication of heart surgery\n" +
+                "6. Hypothyroidism or underactive thyroid gland\n" +
+                "7. Imbalance of electrolytes which are mineral related substances needed for conducting electrical impulses\n" +
+                "8. Inflammatory disease, such as lupus or rheumatic fever\n"));
+
+        data.add(new Info("Treatment\n",
+                "If urgent treatment is needed, supplemental oxygen is given to the individual. " +
+                        "Treatments can range from surgery to correct dangerous intracranial pressure, " +
+                        "to stays in rehabilitation facilities for addiction problems.\n" +
+                        "Contact your doctor for a better understanding"));
+
+        return data;
+
+    }
+
+    ArrayList<Info> getHyperoxiaInfo(){
+        ArrayList<Info>data = new ArrayList<>();
+
+        data.add(new Info("",
+                "Hyperoxia occurs when cells, tissues and organs are exposed to an excess supply of oxygen (O2) or higher than normal partial pressure of oxygen.\n" +
+                "\n" +
+                "In medicine, it refers to excess oxygen in the lungs or other body tissues, which can be caused by breathing air or oxygen at pressures greater than normal atmospheric pressure. " +
+                "This kind of hyperoxia can lead to oxygen toxicity, caused from the harmful effects of breathing molecular oxygen at elevated partial pressures. Hyperoxia is the opposite of hypoxia; hyperoxia refers to a state in which oxygen supply is excessive, and hypoxia refers to a state in which oxygen supply is insufficient.\n" +
+                "\n" +
+                "In the environment, it refers to excess oxygen in a body of water or other habitat."));
+
+        data.add(new Info("Signs and symptoms\n",
+                "Associated with hyperoxia is an increased level of reactive oxygen species (ROS), " +
+                        "which are chemically reactive molecules containing oxygen. " +
+                        "These oxygen containing molecules can damage lipids, proteins, " +
+                        "and nucleic acids, and react with surrounding biological tissues. " +
+                        "\n\nThe human body has naturally occurring antioxidants to combat reactive molecules, " +
+                        "but the protective antioxidant defenses can become depleted by abundant reactive oxygen species, " +
+                        "resulting in oxidation of the tissues and organs.\n" +
+                "\n" +
+                "The symptoms produced from breathing high concentrations of oxygen for extended periods have been studied " +
+                        "in a variety of animals, such as frogs, " +
+                        "turtles, pigeons, mice, rats, guinea pigs, cats, dogs and monkeys. " +
+                        "The majority of these studies reported the occurrence of irritation, " +
+                        "congestion and edema of the lungs, and even death following prolonged exposures."));
+
+        data.add(new Info("Oxygen toxicity","\nThe supplementation of oxygen can lead to oxygen toxicity, also known as oxygen toxicity syndrome, oxygen intoxication, and oxygen poisoning. There are two main types of oxygen toxicity: central nervous system toxicity (CNS)," +
+                "and pulmonary and ocular toxicity."+
+                "\nTemporary exposure to high partial pressures of oxygen at greater than atmospheric pressure can lead to central nervous system toxicity (CNS). An early but serious sign of CNS oxygen toxicity is a grand-mal seizure, also known as a generalized tonic-clonic seizure. " +
+                "This type of seizure consists of a loss of consciousness and violent muscle contractions."
+        +"\n\nProlonged exposure to higher oxygen levels at atmospheric pressure can lead to pulmonary and ocular toxicity. Symptoms of oxygen toxicity may include disorientation, respiratory problems, or myopia. Prolonged exposure to higher than normal partial pressures of oxygen can result " +
+                "in oxidative damage to cell membranes." +"\n\nThe convulsion caused by oxygen toxicity does not lead to hypoxia, a side effect common to most seizures, because the body has an excess amount of oxygen when the convulsion begins. The seizures can lead to drowning, however, " +
+                "if the convulsion is suffered by a diver still in the water. \n" +
+                "\nIf supplementation of oxygen is continued, the individual will notice tightness in the chest, difficulty breathing, shortness of breath, " +
+                "and if exposure is continued, fatality due to lack of oxygen."));
+
+        data.add(new Info("Cause\n",
+                "Oxygen supplied at greater than atmospheric pressure has been known to damage plants, animals, and aerobic bacteria such as Escherichia coli." +
+                " Some studies have shown that even breathing oxygen at 21% has some damaging effects."
+                +"\n\nThe supplementation of oxygen has been a common procedure of prehospital treatment for many years. Guidelines include cautions about chronic obstructive pulmonary disease (COPD). " +
+                        "These guidelines stress the use of 28% oxygen masks and caution the dangers of hyperoxia."
+                +"\n\nAn additional cause of hyperoxia is related to underwater diving with breathing apparatus. \n\nUnderwater divers breath a mixture of gasses which must include oxygen, and the partial pressure of any given gas mixture will increase with depth. A mixture known as nitrox is used to reduce the risk of decompression sickness by substituting oxygen for part of the nitrogen content. Breathing nitrox can lead to " +
+                        "hyperoxia due to the high partial pressure of oxygen if used too deep or for too long."));
+
+        data.add(new Info("Treatment\n",
+                "Oxygen supplementation is used to treat tissue hypoxia and to relieve arterial hypoxemia. High concentrations of oxygen are often given to patients with chronic obstructive pulmonary disease (COPD) or acute lung injury (ALI). Supplementing oxygen is known to cause tissue damage, with toxicity increasing with the increase of oxygen concentrations and exposure pressures. " +
+                        "Unfortunately, the supplementation of oxygen is necessary if an individual is not able to obtain sufficient oxygen through respiration and perfusion. To decrease the chances of hyperoxia, the therapist should use the lowest concentration of oxygen required by an individual. " +
+                "At this time, there are no known alternatives to oxygen supplementation."));
+
+
+        return data;
+
 
 
     }

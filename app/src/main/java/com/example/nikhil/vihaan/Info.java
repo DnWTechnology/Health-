@@ -2,7 +2,6 @@ package com.example.nikhil.vihaan;
 
 public class Info {
 
-
     String topic;
     String info;
 
