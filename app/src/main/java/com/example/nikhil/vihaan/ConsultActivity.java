@@ -45,6 +45,8 @@ public class ConsultActivity extends AppCompatActivity {
         paramMap.put( "CALLBACK_URL", "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=order1");
         //paramMap.put( "CHECKSUMHASH" , "gtxImvRY8Hw2wQx1");
         PaytmOrder Order = new PaytmOrder(paramMap);
+        CheckSumKit
+        String checkSum =  CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(MercahntKey, paramMap);
         Service.initialize(Order, null);
 
 
