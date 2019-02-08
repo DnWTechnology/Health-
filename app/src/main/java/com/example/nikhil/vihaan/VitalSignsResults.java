@@ -5,12 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Objects;
 
 public class VitalSignsResults extends AppCompatActivity {
 
@@ -43,6 +49,15 @@ public class VitalSignsResults extends AppCompatActivity {
             VBP1 = bundle.getInt("SP");
             VBP2 = bundle.getInt("DP");
             VO2 = bundle.getInt("O2R");
+
+            Log.i("MyLogs", Objects.requireNonNull(FirebaseAuth.getInstance().getUid()) );
+
+            FirebaseDatabase.getInstance().getReference()
+                    .child("users")
+                    .child("patients")
+                    .child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                    .child(String.valueOf(new Date().getTime()))
+                    .setValue(new PatientSigns(VBP1, VBP2, VHR, VO2, VRR));
 
 //            VRR = 11;
 //            VHR = 100;
