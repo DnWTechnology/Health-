@@ -31,7 +31,10 @@
 
 
             </android.support.design.widget.AppBarLayout>
-
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:id="@+id/graph" />
 
 
         </FrameLayout>

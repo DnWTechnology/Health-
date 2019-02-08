@@ -86,28 +86,18 @@ public class RemedyActivity extends AppCompatActivity {
     ArrayList<Remedy> hypertension() {
         ArrayList<Remedy> data = new ArrayList<>();
         data.add(new Remedy(" 1) Regular Exercise :\n",
-                "Exercise is one of the best things you can do to lower high blood pressure.\n" +
-                        "\n" +
                         "Regular exercise helps make your heart stronger and more efficient at pumping blood, which lowers the pressure in your arteries.\n" +
                         "\n" +
                         "In fact, 150 minutes of moderate exercise, such as walking, or 75 minutes of vigorous exercise, such as running, per week can help lower blood pressure and improve your heart health (3, 4).\n" +
                         "\n" +
-                        "What's more, doing even more exercise reduces your blood pressure even further, according to the National Walkers' Health Study (5).\n" +
-                        "\n" +
-                        "Bottom Line: Walking just 30 minutes a day can help lower your blood pressure. More exercise helps reduce it even further.", R.drawable.exercise));
+                        "Bottom Line: Walking just 30 minutes a day can help lower your blood pressure.", R.drawable.exercise));
 
         data.add(new Remedy("2) Increase Sodium Intake : \n",
                 "Salt intake is high around the world. In large part, this is due to processed and prepared foods.\n" +
                         "\n" +
-                        "For this reason, many public health efforts are aimed at lowering salt in the food industry (6).\n" +
+                        "Swap out processed foods with fresh ones and try seasoning with herbs and spices, rather than salt (6).\n" +
                         "\n" +
-                        "In many studies, salt has been linked to high blood pressure and heart events, like stroke (7, 8).\n" +
-                        "\n" +
-                        "However, more recent research indicates that the relationship between sodium and high blood pressure is less clear (9, 10).\n" +
-                        "\n" +
-                        "One reason for this may be genetic differences in how people process sodium. About half of people with high blood pressure and a quarter of people with normal levels seem to have a sensitivity to salt (11).\n" +
-                        "\n" +
-                        "If you already have high blood pressure, it's worth cutting back your sodium intake to see if it makes a difference. Swap out processed foods with fresh ones and try seasoning with herbs and spices, rather than salt.\n" +
+                        "However, more recent research indicates that the relationship between sodium and high blood pressure is less clear (7, 8).\n" +
                         "\n" +
                         "Bottom Line: Most guidelines for lowering blood pressure recommend lowering sodium intake. However, that recommendation might make the most sense for people who are salt-sensitive.", R.drawable.salt));
 
@@ -116,18 +106,12 @@ public class RemedyActivity extends AppCompatActivity {
                         "\n" +
                         "While some research has suggested that low-to-moderate amounts of alcohol may protect the heart, those benefits may be offset by negative effects (12).\n" +
                         "\n" +
-                        "In the US, moderate alcohol consumption is defined as no more than one drink a day for women and two for men. If you drink more than that, cut back.\n" +
-                        "\n" +
                         "Bottom Line: Drinking alcohol in any quantity may raise your blood pressure. Limit your drinking to no more than one drink a day for women, two for men.", 0));
 
         data.add(new Remedy("4) Have Potassium Rich Diet : ", "bananas\n" +
-                "Potassium is an important mineral.\n" +
+                "Potassium is an important mineral as it helps your body get rid of sodium.\n" +
                 "\n" +
-                "It helps your body get rid of sodium and ease pressure on your blood vessels.\n" +
-                "\n" +
-                "Modern diets have increased most people's sodium intake while decreasing potassium intake (13).\n" +
-                "\n" +
-                "To get a better balance of potassium to sodium in your diet, focus on eating fewer processed foods and more fresh, whole foods.\n" +
+                "Focus on eating fewer processed foods and more fresh, whole foods.\n" +
                 "\n" +
                 "Foods that are particularly high in potassium include:\n" +
                 "\n" +
@@ -145,30 +129,18 @@ public class RemedyActivity extends AppCompatActivity {
                         "\n" +
                         "Every puff of cigarette smoke causes a slight, temporary increase in blood pressure. The chemicals in tobacco are also known to damage blood vessels.\n" +
                         "\n" +
-                        "Surprisingly, studies haven't found a conclusive link between smoking and high blood pressure. Perhaps this is because smokers develop a tolerance over time (29).\n" +
-                        "\n" +
-                        "Still, since both smoking and high blood pressure raise the risk of heart disease, quitting smoking can help reverse that risk.\n" +
-                        "\n" +
                         "Bottom Line: There's conflicting research about smoking and high blood pressure, but what is clear is that both increase the risk of heart disease.", R.drawable.quit_smoking));
 
         data.add(new Remedy(" 6) Cut added sugar and refined carbs :", "There's a growing body of research showing a link between added sugar and high blood pressure (30, 31, 32).\n" +
-                "\n" +
-                "In the Framingham Women's Health Study, women who drank even one soda per day had higher levels than those who drank less than one soda per day (33).\n" +
-                "\n" +
-                "Another study found that having one less sugar-sweetened beverage per day was linked to lower blood pressure (34).\n" +
                 "\n" +
                 "And it's not just sugar - all refined carbs, such as the kind found in white flour, convert rapidly to sugar in your bloodstream and may cause problems.\n" +
                 "\n" +
                 "Some studies have shown that low-carb diets may also help reduce blood pressure.\n" +
                 "\n" +
-                "One study on people undergoing statin therapy found that those who went on a six-week, carb-restricted diet saw a greater improvement in blood pressure and other heart disease markers than people not on a diet (35).\n" +
-                "\n" +
                 "Bottom Line: Refined carbs, especially sugar, may raise blood pressure. Some studies have shown that low-carb diets may help reduce your levels.", 0));
 
         data.add(new Remedy("7) Eat calcium-rich foods :",
                 "People with low calcium intake often have high blood pressure.\n" +
-                        "\n" +
-                        "While calcium supplements haven't been conclusively shown to lower blood pressure, calcium-rich diets do seem linked to healthy levels (41, 42).\n" +
                         "\n" +
                         "For most adults, the calcium recommendation is 1,000 mg per day. For women over 50 and men over 70, it's 1,200 mg per day (43).\n" +
                         "\n" +
@@ -223,7 +195,6 @@ public class RemedyActivity extends AppCompatActivity {
         ArrayList<Remedy> data = new ArrayList<>();
 
         data.add(new Remedy("1. Perform relaxation techniques\n",
-                "Relaxation techniques, such as yoga and meditation, may help to reduce palpitations.\n" +
                         "Stress can have many ill effects on a person's health. It can induce palpitations or make them worse.\n" +
                         "\n" +
                         "It may help to try the following relaxation techniques:\n" +
@@ -257,16 +228,12 @@ public class RemedyActivity extends AppCompatActivity {
                         "* holding the breath and pushing down, as if making a bowel movement\n" +
                         "* coughing\n" +
                         "* placing ice or a cold, damp towel on the face for a few seconds\n" +
-                        "* gagging\n" +
                         "* splashing cold water on the face\n" +
                         "* chanting \"Om\"\n" +
-                        "* taking a cold shower\n" +
                         "Before trying this method consult a doctor, who can advise on the best technique.", 0));
 
         data.add(new Remedy("4. Keep electrolytes balanced\n",
                         "Avocados and bananas are high in potassium.\n" +
-                        "Electrolytes are molecules found throughout the body that help to transfer electrical signals. These signals play a significant role in regulating the heart rate.\n" +
-                        "\n" +
                         "A person can boost the number of electrolytes in their body by eating foods rich in:\n" +
                         "\n" +
                         "* sodium\n" +
@@ -289,8 +256,7 @@ public class RemedyActivity extends AppCompatActivity {
         data.add(new Remedy("5. Keep hydrated\n",
                 "When the body is dehydrated, the heart has to work harder to circulate blood, which can cause heart palpitations.\n" +
                         "\n" +
-                        "Drink plenty of water throughout the day. The recommended amount will vary, depending on age, sex, and whether a person is pregnant, according to the Centers for Disease Control and Prevention (CDC).\n" +
-                        "\n" +
+                        "Drink plenty of water throughout the day. \n" +
                         "A person should drink a full cup or glass of water when:\n" +
                         "\n" +
                         "* their urine is dark\n" +
@@ -306,11 +272,7 @@ public class RemedyActivity extends AppCompatActivity {
                         "While drinking in moderation is not necessarily problematic, some research indicates that even one drink per day can increase the risk of developing atrial fibrillation. A palpitating heart is just one symptom of this condition.", 0));
 
         data.add(new Remedy("7. Exercise regularly\n",
-                "Couple walking a dog in the forest which may help to stop heart palpitations\n" +
-                        "Walking can help to strengthen the heart and reduce palpitations.\n" +
                         "Exercise can improve overall cardiovascular health and restore the heart's natural rhythm. It can also help to reduce stress and anxiety.\n" +
-                        "\n" +
-                        "Cardiovascular exercise helps to strengthen the heart, which can prevent or reduce palpitations.\n" +
                         "\n" +
                         "Beneficial exercises include:\n" +
                         "\n" +
@@ -343,8 +305,7 @@ public class RemedyActivity extends AppCompatActivity {
 
         data.add(new Remedy("3. Improvement In Posture\n",
                 "You may not have thought about posture and its link with enhanced oxygen in the blood, but they are actually linked (3)!" +
-                        " When you stand, walk or sit in a slouched posture, it hinders the breathing process to an extent. " +
-                        "As a result, you end up taking in less amount of oxygen. " +
+                        " Standing, walking or siting in a slouched posture hinders the breathing process to an extent. " +
                         "Sitting or walking with an erect back and straightened posture enables more oxygen to be inhaled, " +
                         "and that can enter the bloodstream as well.", R.drawable.posture));
 
@@ -353,11 +314,11 @@ public class RemedyActivity extends AppCompatActivity {
                         "Nevertheless, try to avoid roads where traffic congestion is more.", 0));
 
         data.add(new Remedy("5. Getting Fresh Air\n",
-                "When you spend more time in regions where pollution is less and fresh air is available, your bloodstream gets a large supply of oxygen. You may plant trees and shrubs in your garden as they soak in CO2 and release oxygen into the atmosphere. You may also resort to jogging or a morning walk by the riverside, a park or green areas where air is fresher to take in more oxygen through breathing. " +
+                "Spend more time in regions with less pollution and fresh air available. Your bloodstream then gets a large supply of oxygen. You may also plant trees and shrubs in your garden, or take a walk in the park." +
                         "Ensure the rooms in your house are properly ventilated as well.", 0));
 
         data.add(new Remedy("6. Eating Foods With Essential Fatty Acids\n",
-                "Eating foods containing the essential fatty acids are beneficial in many ways (4). These foods are ideal if you want to increase the amount of oxygen in the blood stream. Foods with compounds like alpha-linolenic acid and linoleic acid are very useful in this regard." +
+                "Eating foods containing the essential fatty acids are beneficial in many ways, like -  increasing the amount of oxygen in the blood stream." +
                         " You should eat plenty of soybeans, flaxseeds and walnuts.", 0));
 
         data.add(new Remedy("7. Resorting To Deep Breathing\n",
@@ -376,56 +337,47 @@ public class RemedyActivity extends AppCompatActivity {
         ArrayList<Remedy> data = new ArrayList<Remedy>();
 
         data.add(new Remedy("1. Eat a heart-healthy diet.\n",
-                "If cholesterol or high blood pressure is a concern, changes to your diet can fight cardiovascular disease and improve heart function, according to the American Heart Association. " +
-                        "Eat a variety of nutritious foods, including whole grains like farro, organic fruits and vegetables, lean proteins and wild-caught fish. \n" +
+                "If cholesterol or high blood pressure is a concern, changes to your diet can fight cardiovascular disease and improve heart function. " +
+                        "Eat a variety of nutritious foods, including whole grains, organic fruits and vegetables, lean proteins and wild-caught fish. \n" +
                         "\n" +
-                        "Foods rich in omega-3s are proven to lower bad cholesterol " +
-                        "while raising good cholesterol levels, and evidence shows that it can also lower blood pressure. " +
-                        "As you can see, omega-3s must be a very important part of your diet for heart health. " +
-                        "The American Heart Association recommends an additional 0.5 gram to 1 gram of omega-3 fats daily " +
-                        "either from fresh fish or other sources. \n" +
+                        "Foods rich in omega-3s are proven to lower bad cholesterol, raise good cholesterol levels and lower blood pressure. " +
+                        "0.5 gram to 1 gram of omega-3 fats daily is recommended, either from fresh fish or other sources." +
                         "\n" +
                         "In addition to wild-caught tuna, mackerel and salmon, you can add omega-3s to your diet by adding:\n" +
                         "\n" +
                         "* Walnuts\n" +
                         "* Chia seeds\n" +
-                        "* Herring\n" +
                         "* Flaxseeds & flaxseed oil\n" +
-                        "* Sardines\n" +
                         "* Hemp seeds\n" +
-                        "* Anchovies\n" +
-                        "* Natto\n" +
                         "* Egg yolks", R.drawable.heart_friendly));
 
         data.add(new Remedy("2. L-Carnitine.\n",
-                "Take 2,000 milligrams of L-carnitine daily. In a research study conducted by the Julia Parrish Diabetes Research " +
-                        "Institute at the University of South Florida College of Medicine, " +
+                "Take 2,000 milligrams of L-carnitine daily. " +
                         "L-carnitine supplementation has been shown to increase heart fatty acid metabolism enough to " +
                         "correct bradycardia in diabetic rats. \n" +
                         "\n" +
-                        "You can also get L-carnitine from certain foods including:\n" +
+                        "You can get L-carnitine from certain foods including:\n" +
                         "\n" +
                         "* Grass-fed beef\n" +
                         "* Whole milk\n" +
-                        "* Wild-caught cod\n" +
                         "However, if you are pregnant, breastfeeding, have kidney failure," +
                         " seizures or hypothyroidism, L-carnitine is not recommended.", 0));
 
         data.add(new Remedy("3. Magnesium.\n",
                 "Take 300 milligrams to 400 milligrams of magnesium daily to help combat anxiety, improve sleep efficiency, lower insomnia symptoms, relieve muscle aches and spasms. Additionally, a magnesium deficiency is linked to atherosclerosis, diabetes, hypertension," +
-                        "arrhythmias and heart failure, according to report published in the journal Nutrients. ", 0));
+                        "arrhythmias and heart failure. ", 0));
 
         data.add(new Remedy("4. Acupuncture.\n",
-                "For many of the conditions that can cause bradycardia, acupuncture may be helpful. This includes lupus, Lyme disease, hypothyroidism and stress. Acupuncture is also indicated for cardiovascular health. In a clinical study published in the journal Arthritis Research & Therapy, acupuncture reduces the risk of coronary " +
+                "For many of the conditions that can cause bradycardia, acupuncture may be helpful. This includes lupus, Lyme disease, hypothyroidism and stress. Acupuncture reduces the risk of coronary " +
                         "heart disease in people with fibromyalgia. And, it is shown to reduce stress. ", 0));
 
         data.add(new Remedy("5. Sleep.\n",
-                "When bradycardia symptoms are caused by sleep apnea, adjusting your bedroom’s temperature and humidity levels may help. Sleeping with your head elevated and using of a snore guard may also help. Plus a clinical study published in the journal Clinical Geriatric Medicine indicates that six to 1" +
-                        "0 sessions of cognitive behavioral therapy may improve sleep quality and insomnia symptoms.", 0));
+                "When bradycardia symptoms are caused by sleep apnea, adjusting your bedroom’s temperature and humidity levels may help. Sleeping with your head elevated and using of a snore guard may also help. " +
+                        "Cognitive behavioral therapy may improve sleep quality and insomnia symptoms.", 0));
 
         data.add(new Remedy("6. Exercise daily.\n",
-                "To improve heart health, exercising daily is a must. Many of the causes of sinus bradycardia symptoms can be helped with regular exercise. In addition to improving cardiovascular health, exercising is a great way to relieve stress and anxiety and it can help to facilitate a good night’s sleep. Exercising outdoors and with friends can improve depression and help you feel more connected to your world — " +
-                        "not to mention the added benefit of soaking up some sunshine that will boost your levels of vitamin D. ", R.drawable.exercise));
+                "To improve heart health, exercising daily is a must. Many of the causes of sinus bradycardia symptoms can be helped with regular exercise. In addition to improving cardiovascular health, exercising is a great way to relieve stress and anxiety for a good night’s sleep. Exercising outdoors can improve depression " +
+                        "and boost your levels of vitamin D. ", R.drawable.exercise));
 
         return data;
     }

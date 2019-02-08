@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nikhil.vihaan">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -17,11 +21,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DoctorInfo"></activity>
+        <activity android:name=".DoctorInfo" />
         <activity
             android:name=".DoctorActivity"
             android:label="@string/title_activity_doctor"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
@@ -35,7 +39,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".VitalSignsActivity" />
         <activity android:name=".MedicationsActivity" />
@@ -47,6 +51,7 @@
         <activity android:name=".tempActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".RemedyActivity" />
+        <activity android:name=".DoctorForm"></activity>
     </application>
 
 </manifest>
