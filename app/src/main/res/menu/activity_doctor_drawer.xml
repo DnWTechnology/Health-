@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group>
+        <item
+            android:id="@+id/action_appointment"
+            android:icon="@drawable/ic_people_outline_black_24dp"
+            android:orderInCategory="100"
+            android:title="Appointments"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/action_chat"
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:orderInCategory="100"
+            android:title="Chat"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/action_logout"
+            android:icon="@drawable/logout_icon"
+            android:orderInCategory="100"
+            android:title="Logout"
+            app:showAsAction="never" />
+
+    </group>
+
+
+</menu>

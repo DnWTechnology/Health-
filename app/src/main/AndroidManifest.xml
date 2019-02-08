@@ -3,6 +3,7 @@
     package="com.example.nikhil.vihaan">
 
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.flash" />
 
@@ -16,8 +17,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DoctorInfo"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".DoctorActivity"
+            android:label="@string/title_activity_doctor"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -26,15 +32,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".VitalSignsActivity" />
         <activity android:name=".MedicationsActivity" />
-        <activity android:name=".AboutVitalSigns"></activity>
-        <activity android:name=".ConsultActivity"></activity>
+        <activity android:name=".AboutVitalSigns" />
+        <activity android:name=".ConsultActivity" />
         <activity android:name=".MonitoringInstructions" />
         <activity android:name=".RecordVitalSigns" />
-        <activity android:name=".VitalSignsResults"></activity>
-        <activity android:name=".tempActivity"></activity>
+        <activity android:name=".VitalSignsResults" />
+        <activity android:name=".tempActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".RemedyActivity" />
     </application>
