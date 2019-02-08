@@ -1,6 +1,8 @@
 package com.example.nikhil.vihaan;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -24,23 +26,44 @@ import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
+
+    static boolean isDoctor = false;
+
     NavigationView navigationView;
     DrawerLayout mDrawerLayout;
+    // shared prefference for doctor
+    static SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // using shared preferrence to distinguish between doctor and user
+         sharedPref= getSharedPreferences("doctor",Context.MODE_PRIVATE);
+         isDoctor = sharedPref.getBoolean("isDoctor",true);
+
         if(getSupportActionBar()!=null){
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
         }
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user==null){
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+        if(user==null) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
+
+            else {
+                if(isDoctor) {
+                    finishAffinity();
+                    startActivity(new Intent(MainActivity.this, DoctorActivity.class));
+                }
+                else
+                    {
+                }
+        }
+
         mDrawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.nav_view);
         View header = navigationView.getHeaderView(0);
@@ -67,11 +90,12 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this,ConsultActivity.class));
                         return true;
                     case R.id.nav_logout:
+                        sharedPref.edit().clear().commit();
                         AuthUI.getInstance()
                                 .signOut(MainActivity.this)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     public void onComplete(@NonNull Task<Void> task) {
-                                       startActivity(new Intent(MainActivity.this,MainActivity.class));
+                                        startActivity(new Intent(MainActivity.this,MainActivity.class));
                                     }
                                 });
                         return true;
@@ -82,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 return false;
-                    }
+            }
         });
     }
 
