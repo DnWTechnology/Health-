@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Vihaan</string>
     <string name="action_settings">Settings</string>
+    <string name="finger_instructions">- Lightly place your index finger on the rear camera.\n- Make sure the camera is fully covered.\n- Measure in a shaded environment.\n- Don\'t move your finger until the measurement is complete.\n- Finally place your finger then press start.</string>
     <string name="bp">Blood pressure (BP) is the pressure of circulating blood on the walls of blood vessels.
         \nMost of this pressure is due to the work done by the heart in pumping blood round the circulation.
         \nUsed without further specification, "blood pressure" usually refers to the pressure in large arteries of the systemic circulation.
@@ -19,5 +20,6 @@
     <string name="oxy">Oxygen saturation is the fraction of [oxygen]-saturated hemoglobin relative to total hemoglobin (unsaturated + saturated) in the blood. The human body requires and regulates a very precise and specific balance of oxygen in the blood. </string>
 
     <string name="resp">The respiratory rate is the rate at which breathing occurs. This is usually measured in breaths per minute and is set, and controlled by the respiratory centre.</string>
+
 
 </resources>

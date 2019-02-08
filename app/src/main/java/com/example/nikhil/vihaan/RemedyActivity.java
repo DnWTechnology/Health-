@@ -1,8 +1,8 @@
 package com.example.nikhil.vihaan;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,7 +34,7 @@ public class RemedyActivity extends AppCompatActivity {
                 madapter = new RemedyAdapter(this, hypertension());
                 break;
 
-            case "Low Blood Presure":
+            case "Low Blood Pressure":
 
                 madapter = new RemedyAdapter(this, hypotension());
                 break;
