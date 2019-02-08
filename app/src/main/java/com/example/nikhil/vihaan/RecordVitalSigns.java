@@ -2,6 +2,7 @@ package com.example.nikhil.vihaan;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ import static java.lang.Math.ceil;
 import static java.lang.Math.sqrt;
 
 public class RecordVitalSigns extends AppCompatActivity {
+
+    SharedPreferences sref;
 
     //Variables Initialization
     private static final AtomicBoolean processing = new AtomicBoolean(false);
@@ -83,16 +86,23 @@ public class RecordVitalSigns extends AppCompatActivity {
             //The key argument here must match that used in the other activity
         }
 
+        sref = getSharedPreferences("Info", MODE_PRIVATE);
+
         //Get parameters from Db
 //            Hei = Integer.parseInt(Data.getheight(user));
 //            Wei = Integer.parseInt(Data.getweight(user));
 //            Agg = Integer.parseInt(Data.getage(user));
 //            Gen = Integer.parseInt(Data.getgender(user));
 
-        Hei = 178;
-        Wei = 78;
-        Agg = 20;
-        Gen = 1;
+        Hei = sref.getInt("Height", 178);
+        Wei = sref.getInt("Weight", 75);
+        Agg = sref.getInt("Age", 20);
+
+        String gen = sref.getString("Gender", "M");
+        if (gen.equalsIgnoreCase("M"))
+            Gen = 1;
+        else
+            Gen = 0;
 
         if (Gen == 1) {
             Q = 5;
@@ -135,7 +145,6 @@ public class RecordVitalSigns extends AppCompatActivity {
         camera.setDisplayOrientation(90);
 
         startTime = System.currentTimeMillis();
-
 
 
     }
