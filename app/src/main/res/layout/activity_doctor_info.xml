@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_light"
+    tools:context=".DoctorInfo">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="105dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="64dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0"
+        tools:background="@color/maroon"
+        tools:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="217dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="604dp"
+        android:background="@android:color/white"
+        android:text="NAME"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:textSize="24sp" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageView"
+        android:layout_width="78dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginBottom="7dp"
+        android:src="@drawable/fui_ic_googleg_color_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="298dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="518dp"
+        android:text="location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:background="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="106dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="8dp"
+        android:text="chat fees"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0"
+        tools:background="@color/maroon" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageView2"
+        android:layout_width="40dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.975"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_person_black_24dp" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageView3"
+        android:layout_width="37dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/ic_chat_bubble_black_24dp" />
+
+</android.support.constraint.ConstraintLayout>
