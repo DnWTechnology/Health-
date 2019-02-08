@@ -56,7 +56,7 @@ public class InfoActivity extends AppCompatActivity {
         data.add(new Info("Conditions That May Result in Tachypnea:\n",
                 "A wide range of medical conditions can result in tachypnea. By categories these may include:\n" +
                         "\n" +
-                        "\n1. Lung related:\n\nLung diseases that result in a low level of oxygen or an elevated level of carbon dioxide in the body may include chronic obstructive pulmonary disease (COPD), asthma, pneumonia, pulmonary fibrosis, a pneumothorax (collapsed lung) or a pulmonary embolism, among others. The rapid breathing rate is the body's way of trying to increase oxygen or lower carbon dioxide levels in the blood. In people who are hospitalized, tachypnea can be a sign that pneumonia is developing, and often occurs before other obvious signs of pneumonia are present.\n" +
+                        "\n1. Lung related:\n\nLung diseases that result in a low level of oxygen or an elevated level of carbon dioxide in the body may include chronic obstructive pulmonary disease (COPD), asthma, pneumonia, pulmonary fibrosis, a pneumothorax (collapsed lung) or a pulmonary embolism, among others. The rapid breathing rate is the body's way of trying to increase oxygen or lower carbon dioxide levels in the blood. \n" +
                         "\n2. Heart-related:\n\nConditions such as heart failure, anemia, or a low thyroid can result in cardiovascular changes which in turn cause tachypnea.\n" +
                         "\n3. Hyperventilation:\n\nThis may occur due to pain, anxiety, or other conditions.\n" +
                         "\n4. Metabolic acidosis:\n\nWhen the acid level is too high in the blood, breathing rate increases to blow off carbon dioxide. Some causes of this include diabetic ketoacidosis, lactic acidosis, and hepatic encephalopathy.\n" +
@@ -68,14 +68,13 @@ public class InfoActivity extends AppCompatActivity {
 
         data.add(new Info("Symptoms:\n",
                 "Tachypnea may be accompanied by the sensation of shortness of breath and an inability to get enough air (dyspnea), " +
-                        "blue-tinged fingers and lips (cyanosis) and sucking in of the chest muscles with breathing (retracting). " +
-                        "Tachypnea may also occur without any obvious symptoms, especially when it is related to conditions such as metabolic imbalances or central nervous system conditions."));
+                        "blue-tinged fingers and lips (cyanosis) and sucking in of the chest muscles with breathing (retracting). "));
 
         data.add(new Info("Diagnosis:\n",
                 "The diagnosis of tachypnea will vary depending on a person's age, other medical problems, current medications, and other symptoms, but may include:\n" +
                         "\n" +
                         "\n1. Oximetry:\n\nA \"clip\" may be placed on your finger to estimate the amount of oxygen in your blood.\n" +
-                        "\n2. Arterial blood gases (ABGs):\n\nBlood gases can give a more accurate estimate of your oxygen level as well as the carbon dioxide content of your blood. They will also tell your doctor the pH of your blood, which can be helpful in evaluating metabolic abnormalities. If the pH of the blood is low (acidosis), tests may be done to look for causes such as diabetic ketoacidosis, lactic acidosis, and liver problems.\n" +
+                        "\n2. Arterial blood gases (ABGs):\n\nBlood gases can give a more accurate estimate of your oxygen level, carbon dioxide content of your blood and blood pH.\n" +
                         "\n3. Chest x-ray:\n\nA chest x-ray can quickly determine some causes of tachypnea, such as a collapsed lung.\n" +
                         "\n4. Chest CT:\n\nA chest CT may be done to look for lung diseases or tumors.\n" +
                         "\n5. Pulmonary function tests:\n\nPulmonary function tests are very helpful when looking for conditions such as COPD and asthma.\n" +
@@ -148,41 +147,24 @@ public class InfoActivity extends AppCompatActivity {
         data.add(new Info("",
                 "Hyperoxia occurs when cells, tissues and organs are exposed to an excess supply of oxygen (O2) or higher than normal partial pressure of oxygen.\n" +
                 "\n" +
-                "In medicine, it refers to excess oxygen in the lungs or other body tissues, which can be caused by breathing air or oxygen at pressures greater than normal atmospheric pressure. " +
-                "This kind of hyperoxia can lead to oxygen toxicity, caused from the harmful effects of breathing molecular oxygen at elevated partial pressures. Hyperoxia is the opposite of hypoxia; hyperoxia refers to a state in which oxygen supply is excessive, and hypoxia refers to a state in which oxygen supply is insufficient.\n" +
-                "\n" +
-                "In the environment, it refers to excess oxygen in a body of water or other habitat."));
+                "It can be caused by breathing air or oxygen at pressures greater than normal atmospheric pressure. " +
+                "This kind of hyperoxia can lead to oxygen toxicity, caused from the harmful effects of breathing molecular oxygen at elevated partial pressures.\n"
+                ));
 
         data.add(new Info("Signs and symptoms\n",
                 "Associated with hyperoxia is an increased level of reactive oxygen species (ROS), " +
                         "which are chemically reactive molecules containing oxygen. " +
                         "These oxygen containing molecules can damage lipids, proteins, " +
                         "and nucleic acids, and react with surrounding biological tissues. " +
-                        "\n\nThe human body has naturally occurring antioxidants to combat reactive molecules, " +
-                        "but the protective antioxidant defenses can become depleted by abundant reactive oxygen species, " +
-                        "resulting in oxidation of the tissues and organs.\n" +
-                "\n" +
+                        "\n" + "\n" +
                 "The symptoms produced from breathing high concentrations of oxygen for extended periods have been studied " +
-                        "in a variety of animals, such as frogs, " +
-                        "turtles, pigeons, mice, rats, guinea pigs, cats, dogs and monkeys. " +
+                        "in a variety of animals." +
                         "The majority of these studies reported the occurrence of irritation, " +
                         "congestion and edema of the lungs, and even death following prolonged exposures."));
-
-        data.add(new Info("Oxygen toxicity","\nThe supplementation of oxygen can lead to oxygen toxicity, also known as oxygen toxicity syndrome, oxygen intoxication, and oxygen poisoning. There are two main types of oxygen toxicity: central nervous system toxicity (CNS)," +
-                "and pulmonary and ocular toxicity."+
-                "\nTemporary exposure to high partial pressures of oxygen at greater than atmospheric pressure can lead to central nervous system toxicity (CNS). An early but serious sign of CNS oxygen toxicity is a grand-mal seizure, also known as a generalized tonic-clonic seizure. " +
-                "This type of seizure consists of a loss of consciousness and violent muscle contractions."
-        +"\n\nProlonged exposure to higher oxygen levels at atmospheric pressure can lead to pulmonary and ocular toxicity. Symptoms of oxygen toxicity may include disorientation, respiratory problems, or myopia. Prolonged exposure to higher than normal partial pressures of oxygen can result " +
-                "in oxidative damage to cell membranes." +"\n\nThe convulsion caused by oxygen toxicity does not lead to hypoxia, a side effect common to most seizures, because the body has an excess amount of oxygen when the convulsion begins. The seizures can lead to drowning, however, " +
-                "if the convulsion is suffered by a diver still in the water. \n" +
-                "\nIf supplementation of oxygen is continued, the individual will notice tightness in the chest, difficulty breathing, shortness of breath, " +
-                "and if exposure is continued, fatality due to lack of oxygen."));
 
         data.add(new Info("Cause\n",
                 "Oxygen supplied at greater than atmospheric pressure has been known to damage plants, animals, and aerobic bacteria such as Escherichia coli." +
                 " Some studies have shown that even breathing oxygen at 21% has some damaging effects."
-                +"\n\nThe supplementation of oxygen has been a common procedure of prehospital treatment for many years. Guidelines include cautions about chronic obstructive pulmonary disease (COPD). " +
-                        "These guidelines stress the use of 28% oxygen masks and caution the dangers of hyperoxia."
                 +"\n\nAn additional cause of hyperoxia is related to underwater diving with breathing apparatus. \n\nUnderwater divers breath a mixture of gasses which must include oxygen, and the partial pressure of any given gas mixture will increase with depth. A mixture known as nitrox is used to reduce the risk of decompression sickness by substituting oxygen for part of the nitrogen content. Breathing nitrox can lead to " +
                         "hyperoxia due to the high partial pressure of oxygen if used too deep or for too long."));
 
