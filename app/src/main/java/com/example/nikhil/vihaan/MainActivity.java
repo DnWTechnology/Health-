@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if(getSupportActionBar()!=null){
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
         }
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                                 .signOut(MainActivity.this)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     public void onComplete(@NonNull Task<Void> task) {
-                                       startActivity(new Intent(MainActivity.this,MainActivity.class));
+                                        startActivity(new Intent(MainActivity.this,MainActivity.class));
                                     }
                                 });
                         return true;
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 return false;
-                    }
+            }
         });
     }
 
