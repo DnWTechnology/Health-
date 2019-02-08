@@ -37,6 +37,7 @@ dependencies {
 
     implementation 'com.github.medyo:fancybuttons:1.9.0'
     implementation files('libs/commons-math3-3.6.1.jar')
+    implementation 'com.jjoe64:graphview:4.2.2'
 }
 
 apply plugin: 'com.google.gms.google-services'

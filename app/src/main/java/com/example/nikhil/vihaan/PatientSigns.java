@@ -8,6 +8,7 @@ public class PatientSigns {
     private int oxygenSaturation;
     private int respirationRate;
 
+    public PatientSigns() {}
     public PatientSigns(int systolic, int diastolic, int heartRate, int oxygenSaturation, int respirationRate) {
         this.systolic = systolic;
         this.diastolic = diastolic;
