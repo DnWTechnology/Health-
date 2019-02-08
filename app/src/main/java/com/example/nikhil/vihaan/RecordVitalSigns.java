@@ -89,9 +89,9 @@ public class RecordVitalSigns extends AppCompatActivity {
 //            Agg = Integer.parseInt(Data.getage(user));
 //            Gen = Integer.parseInt(Data.getgender(user));
 
-        Hei = 170;
-        Wei = 60;
-        Agg = 19;
+        Hei = 178;
+        Wei = 78;
+        Agg = 20;
         Gen = 1;
 
         if (Gen == 1) {
