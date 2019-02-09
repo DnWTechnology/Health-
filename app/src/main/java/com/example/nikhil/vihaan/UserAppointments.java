@@ -22,7 +22,7 @@ public class UserAppointments extends AppCompatActivity {
 
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
-                .child("users")
+                .child("userbase")
                 .child("patients")
                 .child(FirebaseAuth.getInstance().getUid())
                 .child("appointments")

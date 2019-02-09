@@ -86,14 +86,14 @@ public class TakeAppointmentForm extends AppCompatActivity {
                PatientAppointment patientAppointment = new PatientAppointment(Name, doctor, FirebaseAuth.getInstance().getUid(),
                        doctorID, appointmentTime, Gender, sref.getInt("Age",20), Problem);
 
-               FirebaseDatabase.getInstance().getReference().child("users")
+               FirebaseDatabase.getInstance().getReference().child("userbase")
                        .child("doctors")
                        .child(doctorID)
                        .child("appointments")
                        .push()
                        .setValue(patientAppointment);
 
-               FirebaseDatabase.getInstance().getReference().child("users")
+               FirebaseDatabase.getInstance().getReference().child("userbase")
                        .child("patients")
                        .child(FirebaseAuth.getInstance().getUid())
                        .child("appointments")
