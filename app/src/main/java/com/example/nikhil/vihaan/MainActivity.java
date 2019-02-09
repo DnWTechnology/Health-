@@ -12,6 +12,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,42 +20,37 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
-import com.github.mikephil.charting.charts.LineChart;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     static boolean isDoctor = false;
-
-    YourData[] dataObjects = ();
-
-    List<Map.Entry> entries = new ArrayList<>();
-
-    for(YourData data : dataObjects) {
-
-        // turn your data into Entry objects
-        entries.add(new Entry(data.getValueX(), data.getValueY()));
-    }
+    ArrayList<PatientSigns> listSigns = new ArrayList<>();
 
     NavigationView navigationView;
     DrawerLayout mDrawerLayout;
-    // shared preference for doctor
+    private DatabaseReference mDatabase;
+    // shared prefference for doctor
     static SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        LineChart chart = (LineChart) findViewById(R.id.chart);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -126,6 +122,34 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
+
+        mDatabase = FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child("patients");
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot child : dataSnapshot.getChildren()) {
+                    for(DataSnapshot vitals : child.getChildren()) {
+                        Log.d("data", "onDataChange: " + vitals.toString());
+                        PatientSigns signs = vitals.getValue(PatientSigns.class);
+                        listSigns.add(signs);
+                        Log.d("class", "onDataChange: "+signs.getDiastolic());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
     }
 
     @Override
