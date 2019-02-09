@@ -19,24 +19,42 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
+import com.github.mikephil.charting.charts.LineChart;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
     static boolean isDoctor = false;
 
+    YourData[] dataObjects = ();
+
+    List<Map.Entry> entries = new ArrayList<>();
+
+    for(YourData data : dataObjects) {
+
+        // turn your data into Entry objects
+        entries.add(new Entry(data.getValueX(), data.getValueY()));
+    }
+
     NavigationView navigationView;
     DrawerLayout mDrawerLayout;
-    // shared prefference for doctor
+    // shared preference for doctor
     static SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        LineChart chart = (LineChart) findViewById(R.id.chart);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
