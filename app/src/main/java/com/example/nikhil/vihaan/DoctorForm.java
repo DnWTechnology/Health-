@@ -59,6 +59,7 @@ public class DoctorForm extends AppCompatActivity {
                 editor.putBoolean("doctorDetails",true);
                 editor.apply();
 
+                finish();
                 startActivity(new Intent(DoctorForm.this, DoctorActivity.class));
 
             }

@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         final LineChart chart1 = findViewById(R.id.chart1);
         final LineChart chart2 = findViewById(R.id.chart2);
         final LineChart chart3 = findViewById(R.id.chart3);
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("DASHBOARD");
 
         // using shared preferrence to distinguish between doctor and user
         sharedPref = getSharedPreferences("doctor", Context.MODE_PRIVATE);
@@ -89,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             if(isDoctor){
                 startActivity(new Intent(this,DoctorActivity.class));
             }
+
 
 
 
