@@ -1,6 +1,7 @@
 package com.example.nikhil.vihaan;
 
 import android.Manifest;
+import android.app.DownloadManager;
 import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,11 +9,16 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.paytm.pgsdk.PaytmClientCertificate;
 import com.paytm.pgsdk.PaytmOrder;
 import com.paytm.pgsdk.PaytmPGService;
@@ -23,6 +29,8 @@ import java.util.Map;
 
 public class ConsultActivity extends AppCompatActivity {
 
+    RecyclerView doctorList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +40,21 @@ public class ConsultActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(ConsultActivity.this, new String[]{Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS}, 101);
         }
 
-        Button tryy=findViewById(R.id.tryy);
-        tryy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ConsultActivity.this, checksum.class);
-                intent.putExtra("orderid", "1234567");
-                intent.putExtra("custid", "9875724");
-                startActivity(intent);
-            }
-        });
+
+
+        doctorList = findViewById(R.id.doctor_list);
+
+        Query query = FirebaseDatabase.getInstance()
+                .getReference()
+                .child("users")
+                .child("doctors")
+                .limitToFirst(50);
+
+        DoctorListAdapter doctorListAdapter = new DoctorListAdapter(R.layout.doctor_info_layout, query, getApplicationContext());
+        doctorList.setAdapter(doctorListAdapter);
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        doctorList.setLayoutManager(layoutManager);
 
 
     }

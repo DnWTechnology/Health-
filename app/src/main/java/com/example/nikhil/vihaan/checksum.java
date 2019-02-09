@@ -19,6 +19,7 @@ import java.util.Map;
 
 public class checksum extends AppCompatActivity implements PaytmPaymentTransactionCallback {
     String custid="", orderId="", mid="";
+    int chatCharge;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Intent intent = getIntent();
         orderId = intent.getExtras().getString("orderid");
-        custid = intent.getExtras().getString("custid");
+        chatCharge = intent.getExtras().getInt("chat_charge");
         mid = "jiFswe09569048044799"; /// your marchant key
         sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
         dl.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -51,7 +52,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
                     "MID="+mid+
                             "&ORDER_ID=" + orderId+
                             "&CUST_ID="+custid+
-                            "&CHANNEL_ID=WAP&TXN_AMOUNT=100&WEBSITE=WEBSTAGING"+
+                            "&CHANNEL_ID=WAP&TXN_AMOUNT=500&WEBSITE=WEBSTAGING"+
                             "&CALLBACK_URL="+ varifyurl+"&INDUSTRY_TYPE_ID=Retail";
             JSONObject jsonObject = jsonParser.makeHttpRequest(url,"POST",param);
             // yaha per checksum ke saht order id or status receive hoga..
@@ -82,9 +83,9 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             //these are mandatory parameters
             paramMap.put("MID", mid); //MID provided by paytm
             paramMap.put("ORDER_ID", orderId);
-            paramMap.put("CUST_ID", custid);
+            paramMap.put("CUST_ID", "24235");
             paramMap.put("CHANNEL_ID", "WAP");
-            paramMap.put("TXN_AMOUNT", "100");
+            paramMap.put("TXN_AMOUNT", "500");
             paramMap.put("WEBSITE", "WEBSTAGING");
             paramMap.put("CALLBACK_URL" ,varifyurl);
             //paramMap.put( "EMAIL" , "abc@gmail.com");   // no need
