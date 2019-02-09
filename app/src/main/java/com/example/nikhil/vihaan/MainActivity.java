@@ -85,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         } else {
 
+            if(isDoctor){
+                startActivity(new Intent(this,DoctorActivity.class));
+            }
+
 
 
         final List<Entry> HRentries = new ArrayList<Entry>();
