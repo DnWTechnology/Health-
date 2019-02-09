@@ -3,6 +3,7 @@ package com.example.nikhil.vihaan;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     DrawerLayout mDrawerLayout;
     private DatabaseReference mDatabase;
-    // shared prefference for doctor
+    // shared preference for doctor
     static SharedPreferences sharedPref;
 
     @Override
@@ -148,6 +149,24 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                        LineDataSet dataSet1 = new LineDataSet(HRentries, "Beats per minute"); // add entries to dataset
+                        dataSet1.setColor(R.color.maroon);
+                        chart1.setBackgroundColor(getResources().getColor(R.color.lime));
+                        Description description1 = new Description();
+                        description1.setText("Heart Rate");
+                        chart1.setDescription(description1);
+                        LineData lineData1 = new LineData(dataSet1);
+                        chart1.setData(lineData1);
+                        Legend legend1 = chart1.getLegend();
+                        legend1.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
+                        legend1.setTextColor(R.color.colorPrimary);
+                        legend1.setTypeface(Typeface.DEFAULT_BOLD);
+                        legend1.setTextSize(25f);
+                        chart1.invalidate(); // refresh
+                        chart1.notifyDataSetChanged();
+
                 for (DataSnapshot vitals : dataSnapshot.getChildren()) {
                     Log.d("data", "onDataChange: " + vitals.toString());
                     PatientSigns signs = vitals.getValue(PatientSigns.class);
@@ -162,19 +181,6 @@ public class MainActivity extends AppCompatActivity {
                     //Log.d("entries retrieved", "onDataChange: "+HRentries.get(i).getY());
                     i = i + 1;
 
-                    LineDataSet dataSet1 = new LineDataSet(HRentries, "Heart Rate"); // add entries to dataset
-                    dataSet1.setColor(R.color.maroon);
-                    chart1.setBackgroundColor(getResources().getColor(R.color.lime));
-                    Description description1 = new Description();
-                    description1.setText("Heart Rate");
-                    chart1.setDescription(description1);
-                    LineData lineData1 = new LineData(dataSet1);
-                    chart1.setData(lineData1);
-                    Legend legend1 = chart1.getLegend();
-                    legend1.setTextColor(R.color.colorPrimary);
-                    legend1.setTextSize(12f);
-                    chart1.invalidate(); // refresh
-                    chart1.notifyDataSetChanged();
 
                         /*LineDataSet dataSet2 = new LineDataSet(OSentries, "Heart Rate"); // add entries to dataset
                         dataSet2.setColor(R.color.maroon);
@@ -185,42 +191,48 @@ public class MainActivity extends AppCompatActivity {
                         LineData lineData2 = new LineData(dataSet2);
                         chart2.setData(lineData2);
                         Legend legend2 = chart2.getLegend();
+                        legend2.setTypeface(Typeface.DEFAULT_BOLD);
+                        legend2.setTextSize(25f);
                         legend2.setTextColor(R.color.colorPrimary);
                         legend2.setTextSize(12f);
                         chart2.invalidate(); // refresh
                         chart2.notifyDataSetChanged();*/
 
-                    LineDataSet dataSet3 = new LineDataSet(Respientries, "Heart Rate"); // add entries to dataset
-                    dataSet3.setColor(R.color.maroon);
-                    chart3.setBackgroundColor(getResources().getColor(R.color.lightblue));
-                    Description description3 = new Description();
-                    description3.setText("Respiration Rate");
-                    chart3.setDescription(description3);
-                    LineData lineData3 = new LineData(dataSet3);
-                    chart3.setData(lineData3);
-                    Legend legend3 = chart3.getLegend();
-                    legend3.setTextColor(R.color.colorPrimary);
-                    legend3.setTextSize(12f);
-                    chart3.invalidate(); // refresh
-                    chart3.notifyDataSetChanged();
 
-                    LineDataSet dataSet4 = new LineDataSet(HRentries, "Heart Rate"); // add entries to dataset
-                    dataSet4.setColor(R.color.maroon);
-                    chart4.setBackgroundColor(getResources().getColor(R.color.pink));
-                    Description description4 = new Description();
-                    description4.setText("Heart Rate");
-                    chart4.setDescription(description4);
-                    LineData lineData4 = new LineData(dataSet4);
-                    chart4.setData(lineData4);
-                    Legend legend4 = chart4.getLegend();
-                    legend4.setTextColor(R.color.colorPrimary);
-                    legend4.setTextSize(12f);
-                    chart4.invalidate(); // refresh
-                    chart4.notifyDataSetChanged();
+                        LineDataSet dataSet3 = new LineDataSet(Respientries, "Breaths per minute"); // add entries to dataset
+                        dataSet3.setColor(R.color.maroon);
+                        chart3.setBackgroundColor(getResources().getColor(R.color.lightblue));
+                        Description description3 = new Description();
+                        description3.setText("Respiration Rate");
+                        chart3.setDescription(description3);
+                        LineData lineData3 = new LineData(dataSet3);
+                        chart3.setData(lineData3);
+                        Legend legend3 = chart3.getLegend();
+                        legend3.setTypeface(Typeface.DEFAULT_BOLD);
+                        legend3.setTextSize(25f);
+                        legend3.setTextColor(R.color.colorPrimary);
+                        legend3.setTextSize(12f);
+                        chart3.invalidate(); // refresh
+                        chart3.notifyDataSetChanged();
 
+                        LineDataSet dataSet4 = new LineDataSet(OSentries, "millimeters of mercury (mm Hg)"); // add entries to dataset
+                        dataSet4.setColor(R.color.maroon);
+                        chart4.setBackgroundColor(getResources().getColor(R.color.pink));
+                        Description description4 = new Description();
+                        description4.setText("Oxygen Saturation");
+                        chart4.setDescription(description4);
+                        LineData lineData4 = new LineData(dataSet4);
+                        chart4.setData(lineData4);
+                        Legend legend4 = chart4.getLegend();
+                        legend4.setTypeface(Typeface.DEFAULT_BOLD);
+                        legend4.setTextSize(25f);
+                        legend4.setTextColor(R.color.colorPrimary);
+                        legend4.setTextSize(12f);
+                        chart4.invalidate(); // refresh
+                        chart4.notifyDataSetChanged();
 
+                    }
                 }
-            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
