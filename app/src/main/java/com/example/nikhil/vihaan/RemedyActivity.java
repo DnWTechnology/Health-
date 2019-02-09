@@ -34,7 +34,7 @@ public class RemedyActivity extends AppCompatActivity {
                 madapter = new RemedyAdapter(this, hypertension());
                 break;
 
-            case "Low Blood Pressure":
+            case "Low Blood Presure":
 
                 madapter = new RemedyAdapter(this, hypotension());
                 break;
