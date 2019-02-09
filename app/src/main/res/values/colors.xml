@@ -9,4 +9,5 @@
     <color name="lightblue">#b0c4de</color>
     <color name="pink">#ffb6c1</color>
     <color name="skin">#ffa07a</color>
+    <color name="dataset_color">#2f4f4f</color>
 </resources>
