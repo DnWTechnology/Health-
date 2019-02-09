@@ -1,6 +1,7 @@
 package com.example.nikhil.vihaan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -64,7 +65,7 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
                                 Toast.makeText(v.getContext(), "Starting chat for", Toast.LENGTH_SHORT).show();
                                 return true;
                             case R.id.action_appointment:
-                                Toast.makeText(v.getContext(), "Starting chat", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(v.getContext(), TakeAppointmentForm.class);
                                 return true;
                             default:
                                 return false;

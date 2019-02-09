@@ -40,7 +40,8 @@ public class DoctorForm extends AppCompatActivity {
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DoctorDetails details = new DoctorDetails(user.getDisplayName(), qualification.getText().toString(),
+                DoctorDetails details = new DoctorDetails(user.getDisplayName(), FirebaseAuth.getInstance().getUid(),
+                        qualification.getText().toString(),
                         address.getText().toString(), specialities.getText().toString(),
                         Integer.parseInt(messCharge.getText().toString()), Integer.parseInt(appointCharge.getText().toString()),
                         90, 92);
@@ -49,6 +50,7 @@ public class DoctorForm extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference()
                         .child("users")
                         .child("doctors")
+                        .child("details")
                         .child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
                         .setValue(details);
                 Toast.makeText(DoctorForm.this, "Details Updated Successfully", Toast.LENGTH_SHORT).show();

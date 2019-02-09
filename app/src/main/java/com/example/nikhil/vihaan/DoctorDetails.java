@@ -1,15 +1,16 @@
 package com.example.nikhil.vihaan;
 
 public class DoctorDetails {
-    private String name,qualification,address, specialities;
+    private String name,qualification,address, specialities, doctorID;
     private int messageCharge, appointmentCharge;
     private float lat, lang;
 
     public DoctorDetails() {
     }
 
-    DoctorDetails(String name, String qualification, String address, String specialities, int messageCharge, int appointmentCharge, float lat, float lang) {
+    DoctorDetails(String name, String doctorID, String qualification, String address, String specialities, int messageCharge, int appointmentCharge, float lat, float lang) {
         this.name = name;
+        this.doctorID = doctorID;
         this.qualification = qualification;
         this.address = address;
         this.specialities = specialities;
