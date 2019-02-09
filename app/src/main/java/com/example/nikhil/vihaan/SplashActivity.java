@@ -18,8 +18,6 @@ public class SplashActivity extends AppCompatActivity {
             "android.permission.ACCESS_NETWORK_STATE",
             "android.permission.READ_SMS",
             "android.permission.RECEIVE_SMS"
-
-
     };
 
     @Override
@@ -30,12 +28,8 @@ public class SplashActivity extends AppCompatActivity {
 
         if(!(checkCallingOrSelfPermission(permission_String[0])== PackageManager.PERMISSION_GRANTED
                 && checkCallingOrSelfPermission(permission_String[1])==PackageManager.PERMISSION_GRANTED
-                && checkCallingOrSelfPermission(permission_String[2])==PackageManager.PERMISSION_GRANTED
-                            && checkCallingOrSelfPermission(permission_String[3])==PackageManager.PERMISSION_GRANTED
-                && checkCallingOrSelfPermission(permission_String[4])==PackageManager.PERMISSION_GRANTED
-                && checkCallingOrSelfPermission(permission_String[5])==PackageManager.PERMISSION_GRANTED)){
-
-                ActivityCompat.requestPermissions(this, permission_String, 131);
+                && checkCallingOrSelfPermission(permission_String[2])==PackageManager.PERMISSION_GRANTED)){
+            ActivityCompat.requestPermissions(this, permission_String, 131);
         }
         else
             DisplayActivity();

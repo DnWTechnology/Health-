@@ -7,6 +7,7 @@
     android:paddingRight="64dp"
     android:paddingTop="16dp"
     android:orientation="vertical"
+    android:background="#D3D3D3	"
     android:gravity="center">
 
 
@@ -28,4 +29,12 @@
         android:progress="1"
         android:progressDrawable="@drawable/circular_progressbar" />
 
+    <TextView
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="Recording and Measuring"/>
 </LinearLayout>

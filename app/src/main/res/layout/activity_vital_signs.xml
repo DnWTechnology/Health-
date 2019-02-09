@@ -5,7 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <TextView
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vital Signs Monitor"/>
+
     <ImageView
+        android:layout_centerInParent="true"
         android:id="@+id/report_img"
         android:layout_width="180dp"
         android:layout_height="240dp"
@@ -23,7 +38,7 @@
         android:paddingBottom="10dp"
         fancy:fb_borderColor="#FFFFFF"
         fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="#7ab800"
+        fancy:fb_defaultColor="@color/colorPrimaryDark"
         fancy:fb_focusColor="#9bd823"
         fancy:fb_radius="30dp"
         fancy:fb_text="MONITOR VITAL SIGNS"
