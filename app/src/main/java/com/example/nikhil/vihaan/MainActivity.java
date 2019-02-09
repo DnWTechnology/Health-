@@ -3,6 +3,7 @@ package com.example.nikhil.vihaan;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -167,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                         //Log.d("entries retrieved", "onDataChange: "+HRentries.get(i).getY());
                         i=i+1;
 
-                        LineDataSet dataSet1 = new LineDataSet(HRentries, "Heart Rate"); // add entries to dataset
+                        LineDataSet dataSet1 = new LineDataSet(HRentries, "Beats per minute"); // add entries to dataset
                         dataSet1.setColor(R.color.maroon);
                         chart1.setBackgroundColor(getResources().getColor(R.color.lime));
                         Description description1 = new Description();
@@ -177,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
                         chart1.setData(lineData1);
                         Legend legend1 = chart1.getLegend();
                         legend1.setTextColor(R.color.colorPrimary);
+                        legend1.setTypeface(Typeface.DEFAULT_BOLD);
                         legend1.setTextSize(12f);
                         chart1.invalidate(); // refresh
                         chart1.notifyDataSetChanged();
@@ -195,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                         chart2.invalidate(); // refresh
                         chart2.notifyDataSetChanged();*/
 
-                        LineDataSet dataSet3 = new LineDataSet(Respientries, "Heart Rate"); // add entries to dataset
+                        LineDataSet dataSet3 = new LineDataSet(Respientries, "Breaths per minute"); // add entries to dataset
                         dataSet3.setColor(R.color.maroon);
                         chart3.setBackgroundColor(getResources().getColor(R.color.lightblue));
                         Description description3 = new Description();
@@ -209,11 +211,11 @@ public class MainActivity extends AppCompatActivity {
                         chart3.invalidate(); // refresh
                         chart3.notifyDataSetChanged();
 
-                        LineDataSet dataSet4 = new LineDataSet(HRentries, "Heart Rate"); // add entries to dataset
+                        LineDataSet dataSet4 = new LineDataSet(OSentries, "millimeters of mercury (mm Hg)"); // add entries to dataset
                         dataSet4.setColor(R.color.maroon);
                         chart4.setBackgroundColor(getResources().getColor(R.color.pink));
                         Description description4 = new Description();
-                        description4.setText("Heart Rate");
+                        description4.setText("Oxygen Saturation");
                         chart4.setDescription(description4);
                         LineData lineData4 = new LineData(dataSet4);
                         chart4.setData(lineData4);
