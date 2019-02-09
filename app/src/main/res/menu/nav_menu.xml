@@ -12,12 +12,7 @@
             android:title="Vital Signs"
 
             app:showAsAction="never" />
-        <item
-            android:id="@+id/nav_medication"
-            android:icon="@drawable/ic_local_hospital_black"
-            android:orderInCategory="100"
-            android:title="Medications"
-            app:showAsAction="never" />
+
         <item
             android:id="@+id/nav_consult"
             android:icon="@drawable/consult_icon"
@@ -31,6 +26,24 @@
             android:title="About Vital Signs"
             app:showAsAction="never" />
     </group>
+
+    <group
+        android:id="@+id/menu_mid"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_my_appoints"
+            android:icon="@drawable/logout_icon"
+            android:orderInCategory="100"
+            android:title="My Appointments"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/nav_my_chats"
+            android:icon="@drawable/settings_icon"
+            android:orderInCategory="100"
+            android:title="My Chats"
+            app:showAsAction="never" />
+    </group>
+
     <group
         android:id="@+id/menu_bottom"
         android:checkableBehavior="single">
