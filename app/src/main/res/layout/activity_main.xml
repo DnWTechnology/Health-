@@ -3,24 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="match_parent">
 
 
     <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/drawer_layout">
+        android:layout_height="match_parent">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme.AppBarOverlay">
-
-
-
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -31,30 +29,57 @@
 
 
             </android.support.design.widget.AppBarLayout>
-            <com.jjoe64.graphview.GraphView
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="200dip"
-                android:id="@+id/graph" />
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart1"
+                android:layout_width="380dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp" />
 
             <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart"
-                android:layout_width="match_parent"
+                android:id="@+id/chart2"
+                android:layout_width="380dp"
                 android:layout_height="250dp"
-                android:layout_marginTop="250dp"/>
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="320dp" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart3"
+                android:layout_width="380dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="580dp" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart4"
+                android:layout_width="380dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="840dp" />
+                </RelativeLayout>
+
+            </ScrollView>
 
         </FrameLayout>
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
-            android:background="#ffccBD"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:theme="@style/NavStyle"
+            android:background="#ffccBD"
             android:fitsSystemWindows="true"
-            app:menu="@menu/nav_menu"
-            app:headerLayout="@layout/nav_header"/>
-
+            android:theme="@style/NavStyle"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/nav_menu" />
 
     </android.support.v4.widget.DrawerLayout>
 

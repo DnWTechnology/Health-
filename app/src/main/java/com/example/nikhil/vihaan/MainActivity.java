@@ -62,8 +62,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final LineChart chart = findViewById(R.id.chart);
-
+        final LineChart chart1 = findViewById(R.id.chart1);
+        final LineChart chart2 = findViewById(R.id.chart2);
+        final LineChart chart3 = findViewById(R.id.chart3);
+        final LineChart chart4 = findViewById(R.id.chart4);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -92,7 +94,11 @@ public class MainActivity extends AppCompatActivity {
                 }
         }
 
-        final List<Entry> entries = new ArrayList<Entry>();
+        final List<Entry> HRentries = new ArrayList<Entry>();
+        final List<Entry> Sysentries = new ArrayList<Entry>();
+        final List<Entry> Diasentries = new ArrayList<Entry>();
+        final List<Entry> OSentries = new ArrayList<Entry>();
+        final List<Entry> Respientries = new ArrayList<Entry>();
         mDrawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.nav_view);
 
@@ -152,24 +158,70 @@ public class MainActivity extends AppCompatActivity {
                         PatientSigns signs = vitals.getValue(PatientSigns.class);
                         listSigns.add(signs);
                         Log.i("retrieved: ", Integer.toString(listSigns.get(i).getHeartRate()));
-                        entries.add(new Entry(1+i, listSigns.get(i).getHeartRate()));
-                        Log.d("class", "onDataChange: "+signs.getDiastolic());
-                        Log.d("entries retrieved", "onDataChange: "+entries.get(i).getY());
+                        HRentries.add(new Entry(1+i, listSigns.get(i).getHeartRate()));
+                        Sysentries.add(new Entry(1+i, listSigns.get(i).getSystolic()));
+                        Diasentries.add(new Entry(1+i, listSigns.get(i).getDiastolic()));
+                        OSentries.add(new Entry(1+i, listSigns.get(i).getOxygenSaturation()));
+                        Respientries.add(new Entry(1+i, listSigns.get(i).getRespirationRate()));
+                        //Log.d("class", "onDataChange: "+signs.getDiastolic());
+                        //Log.d("entries retrieved", "onDataChange: "+HRentries.get(i).getY());
                         i=i+1;
 
-                        LineDataSet dataSet = new LineDataSet(entries, "Heart Rate"); // add entries to dataset
-                        dataSet.setColor(R.color.maroon);
-                        chart.setBackgroundColor(getResources().getColor(R.color.lime));
-                        Description description = new Description();
-                        description.setText("Heart Rate");
-                        chart.setDescription(description);
-                        LineData lineData = new LineData(dataSet);
-                        chart.setData(lineData);
-                        Legend legend = chart.getLegend();
-                        legend.setTextColor(R.color.colorPrimary);
-                        legend.setTextSize(12f);
-                        chart.invalidate(); // refresh
-                        chart.notifyDataSetChanged();
+                        LineDataSet dataSet1 = new LineDataSet(HRentries, "Heart Rate"); // add entries to dataset
+                        dataSet1.setColor(R.color.maroon);
+                        chart1.setBackgroundColor(getResources().getColor(R.color.lime));
+                        Description description1 = new Description();
+                        description1.setText("Heart Rate");
+                        chart1.setDescription(description1);
+                        LineData lineData1 = new LineData(dataSet1);
+                        chart1.setData(lineData1);
+                        Legend legend1 = chart1.getLegend();
+                        legend1.setTextColor(R.color.colorPrimary);
+                        legend1.setTextSize(12f);
+                        chart1.invalidate(); // refresh
+                        chart1.notifyDataSetChanged();
+
+                        /*LineDataSet dataSet2 = new LineDataSet(OSentries, "Heart Rate"); // add entries to dataset
+                        dataSet2.setColor(R.color.maroon);
+                        chart2.setBackgroundColor(getResources().getColor(R.color.skin));
+                        Description description2 = new Description();
+                        description2.setText("Oxygen Saturation");
+                        chart2.setDescription(description2);
+                        LineData lineData2 = new LineData(dataSet2);
+                        chart2.setData(lineData2);
+                        Legend legend2 = chart2.getLegend();
+                        legend2.setTextColor(R.color.colorPrimary);
+                        legend2.setTextSize(12f);
+                        chart2.invalidate(); // refresh
+                        chart2.notifyDataSetChanged();*/
+
+                        LineDataSet dataSet3 = new LineDataSet(Respientries, "Heart Rate"); // add entries to dataset
+                        dataSet3.setColor(R.color.maroon);
+                        chart3.setBackgroundColor(getResources().getColor(R.color.lightblue));
+                        Description description3 = new Description();
+                        description3.setText("Respiration Rate");
+                        chart3.setDescription(description3);
+                        LineData lineData3 = new LineData(dataSet3);
+                        chart3.setData(lineData3);
+                        Legend legend3 = chart3.getLegend();
+                        legend3.setTextColor(R.color.colorPrimary);
+                        legend3.setTextSize(12f);
+                        chart3.invalidate(); // refresh
+                        chart3.notifyDataSetChanged();
+
+                        LineDataSet dataSet4 = new LineDataSet(HRentries, "Heart Rate"); // add entries to dataset
+                        dataSet4.setColor(R.color.maroon);
+                        chart4.setBackgroundColor(getResources().getColor(R.color.pink));
+                        Description description4 = new Description();
+                        description4.setText("Heart Rate");
+                        chart4.setDescription(description4);
+                        LineData lineData4 = new LineData(dataSet4);
+                        chart4.setData(lineData4);
+                        Legend legend4 = chart4.getLegend();
+                        legend4.setTextColor(R.color.colorPrimary);
+                        legend4.setTextSize(12f);
+                        chart4.invalidate(); // refresh
+                        chart4.notifyDataSetChanged();
 
                     }
                 }
