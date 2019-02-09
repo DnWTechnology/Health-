@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/header"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -31,6 +32,7 @@
 
             <TextView
                 android:id="@+id/Bp"
+                android:textColor="@color/colorPrimaryDark"
                 style="@style/Base.TextAppearance.AppCompat.Headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,7 +44,10 @@
                 android:textStyle="bold" />
 
             <TextView
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:textColor="#000000"
                 android:id="@+id/bp_info"
+                android:textSize="17sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Bp"
@@ -83,6 +88,7 @@
 
             <TextView
                 android:id="@+id/hr"
+                android:textColor="@color/colorPrimaryDark"
                 style="@style/Base.TextAppearance.AppCompat.Headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,9 +105,13 @@
 
             <TextView
                 android:id="@+id/hr_info"
+                android:textSize="17sp"
+
+                android:textColor="#000000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/hr"
+                android:layout_marginTop="8dp"
                 android:text="@string/hr" />
 
             <ImageView
@@ -138,7 +148,7 @@
     android:layout_below="@+id/bal"
     android:layout_marginBottom="10dp"
     />
-            
+
             <TextView
                 android:id="@+id/oxy"
                 style="@style/Base.TextAppearance.AppCompat.Headline"
@@ -149,6 +159,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
                 android:text="Oxygen Saturation"
                 android:textAlignment="center"
                 android:textSize="20sp"
@@ -157,6 +168,9 @@
 
             <TextView
                 android:id="@+id/oxy_info"
+                android:textColor="#000000"
+                android:textSize="17sp"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/oxy"
@@ -194,7 +208,7 @@
                 android:background="#000000"
                 android:layout_below="@+id/hyper"
                 android:layout_marginBottom="10dp"/>
-            
+
             <TextView
                 android:id="@+id/resp"
                 style="@style/Base.TextAppearance.AppCompat.Headline"
@@ -205,6 +219,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
                 android:text="Respiration Rate"
                 android:textAlignment="center"
                 android:textSize="20sp"
@@ -213,6 +228,9 @@
 
             <TextView
                 android:id="@+id/resp_info"
+                android:textColor="#000000"
+                android:textSize="17sp"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/resp"
@@ -220,8 +238,11 @@
 
 
             <TextView
+                android:textColor="#000000"
                 android:layout_below="@+id/resp_info"
                 android:id="@+id/resp_range"
+                android:textSize="17sp"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nAverage resting respiratory rates by age are:\n
