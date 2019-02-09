@@ -21,6 +21,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MychatsActivity"></activity>
+        <activity android:name=".Math.MyChatsActivity" />
+        <activity
+            android:name=".AppointmentActivity"
+            android:label="@string/title_activity_appointment" />
+        <activity android:name=".PatientInfoActivity" />
         <activity android:name=".DoctorInfo" />
         <activity
             android:name=".DoctorActivity"
@@ -51,7 +57,7 @@
         <activity android:name=".tempActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".RemedyActivity" />
-        <activity android:name=".DoctorForm"></activity>
+        <activity android:name=".DoctorForm" />
     </application>
 
 </manifest>
