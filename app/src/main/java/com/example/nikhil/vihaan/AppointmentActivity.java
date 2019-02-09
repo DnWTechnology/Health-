@@ -11,7 +11,6 @@ public class AppointmentActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +25,7 @@ public class AppointmentActivity extends AppCompatActivity {
                     case R.id.appointment_new:
                         mTextMessage.setText("New Appointment");
                         return true;
-                    case R.id.navigation_completed:
+                    case R.id.appointment_confirmed:
                         mTextMessage.setText("Confirmed Appointment");
                         return true;
                 }

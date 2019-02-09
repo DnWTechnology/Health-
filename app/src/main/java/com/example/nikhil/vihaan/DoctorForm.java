@@ -2,6 +2,7 @@ package com.example.nikhil.vihaan;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,8 @@ public class DoctorForm extends AppCompatActivity {
         qualification=findViewById(R.id.qual);
         proceed=findViewById(R.id.proceed_btn);
         specialities = findViewById(R.id.speciality);
+
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

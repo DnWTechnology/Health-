@@ -45,8 +45,8 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
     protected void populateViewHolder(DoctorHolder viewHolder, DoctorDetails model, int position) {
         viewHolder.doctorName.setText(model.getName());
         viewHolder.doctorQualification.setText(model.getQualification());
-        viewHolder.chatFees.setText(model.getMessageCharge());
-        viewHolder.appointmentFees.setText(model.getAppointmentCharge());
+        viewHolder.chatFees.setText("Rs. "+ model.getMessageCharge());
+        viewHolder.appointmentFees.setText("Rs. " + model.getAppointmentCharge());
         viewHolder.doctorAddress.setText(model.getAddress());
         viewHolder.doctorSpeciality.setText("Speciality: " + model.getSpecialities());
         viewHolder.overflowButton.setOnClickListener(new View.OnClickListener() {

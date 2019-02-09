@@ -5,6 +5,9 @@ public class DoctorDetails {
     private int messageCharge, appointmentCharge;
     private float lat, lang;
 
+    public DoctorDetails() {
+    }
+
     DoctorDetails(String name, String qualification, String address, String specialities, int messageCharge, int appointmentCharge, float lat, float lang) {
         this.name = name;
         this.qualification = qualification;
