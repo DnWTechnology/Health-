@@ -84,7 +84,7 @@ public class TakeAppointmentForm extends AppCompatActivity {
                //Add to OnActivity result
 
                PatientAppointment patientAppointment = new PatientAppointment(Name, doctor, FirebaseAuth.getInstance().getUid(),
-                       doctorID, appointmentTime, Gender, Integer.getInteger(Age), Problem);
+                       doctorID, appointmentTime, Gender, Integer.parseInt(Age) , Problem);
 
                FirebaseDatabase.getInstance().getReference().child("users")
                        .child("doctors")
