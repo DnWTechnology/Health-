@@ -1,13 +1,15 @@
 package com.example.nikhil.vihaan;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
+import android.view.ViewGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -20,38 +22,17 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class MyChatsActivity extends AppCompatActivity {
+import static android.content.Context.MODE_PRIVATE;
 
+public class DoctorChatsFragment extends Fragment {
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_chats);
-
-        displayUserList();
-
-    }
-
-//    public void startChat(View view) {
-//        Intent intent = new Intent(getApplicationContext(), StartChatActivity.class);
-//        startActivityForResult(intent, START_CHAT_REQUEST_CODE);
-//    }
-//
-//    private void beginChat(String userUid, String userName) {
-//        if (!userUid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-//            final Intent intent = new Intent(getApplicationContext(), ChatRoomActivity.class);
-//            intent.putExtra("user_uid", userUid);
-//            intent.putExtra("user_name", userName);
-//            startActivity(intent);
-//        } else {
-//            Toast.makeText(this, "Cannot initiate chat with self.", Toast.LENGTH_SHORT).show();
-//        }
-//    }
-
-    private void displayUserList() {
-        final RecyclerView listOfUsers = findViewById(R.id.list_of_users);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_my_chats,container,false);
+        RecyclerView listOfUsers = view.findViewById(R.id.list_of_users);
 
         Query query;
-        if(getApplicationContext().getSharedPreferences
+        if(getContext().getSharedPreferences
                 ("settings", MODE_PRIVATE).getBoolean("VIEW_FAVOURITE", false)) {
             query = FirebaseDatabase.getInstance()
                     .getReference()
@@ -72,11 +53,17 @@ public class MyChatsActivity extends AppCompatActivity {
                     .limitToLast(50);
         }
 
-        UserListAdapter adapter = new UserListAdapter(R.layout.user_layout, query, getApplicationContext());
+        UserListAdapter adapter = new UserListAdapter(R.layout.user_layout, query, getContext());
         listOfUsers.setAdapter(adapter);
 
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         listOfUsers.setLayoutManager(layoutManager);
+        return view;
+    }
+
+
+    private void displayUserList() {
+
     }
 
     public void setUserOnlineState(final boolean state) {
@@ -115,5 +102,4 @@ public class MyChatsActivity extends AppCompatActivity {
         });
 
     }
-
 }
