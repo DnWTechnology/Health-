@@ -36,9 +36,6 @@ public class DoctorActivity extends AppCompatActivity {
         sharedPref= getSharedPreferences("doctor",Context.MODE_PRIVATE);
         doctorDetails = sharedPref.getBoolean("isDoctor",false);
 
-        if(doctorDetails!=true) {
-            startActivity(new Intent(this, DoctorForm.class));
-        }
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.nav_view_main);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -51,17 +48,7 @@ public class DoctorActivity extends AppCompatActivity {
 
 
                 }
-                else if( id==R.id.action_logout){
-                    MainActivity.isDoctor=false;
-                    MainActivity.sharedPref.edit().clear().commit();
-                    AuthUI.getInstance()
-                            .signOut(DoctorActivity.this)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    startActivity(new Intent(DoctorActivity.this,MainActivity.class));
-                                }
-                            });
-                }
+
                 return true;
             }
         });
@@ -84,6 +71,17 @@ public class DoctorActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        else if( id==R.id.action_logout){
+            MainActivity.isDoctor=false;
+            MainActivity.sharedPref.edit().clear().commit();
+            AuthUI.getInstance()
+                    .signOut(DoctorActivity.this)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        public void onComplete(@NonNull Task<Void> task) {
+                            startActivity(new Intent(DoctorActivity.this,MainActivity.class));
+                        }
+                    });
         }
 
         return super.onOptionsItemSelected(item);

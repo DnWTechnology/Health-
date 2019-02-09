@@ -7,7 +7,7 @@
         android:title="New Appointments" />
 
     <item
-        android:id="@+id/navigation_completed"
+        android:id="@+id/appointment_confirmed"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Comfirmed Appointments" />
 
