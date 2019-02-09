@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -249,6 +250,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     }
 
     private void sendMessageToChats(String from, String to, String message) {
+        Log.i("MyLOgs", myData.getUserName() + " "+myData.getEmailID());
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
         dbRef.child("chats")
                 .child(from)

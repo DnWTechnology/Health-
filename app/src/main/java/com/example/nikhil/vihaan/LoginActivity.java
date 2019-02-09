@@ -14,9 +14,11 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int USER_SIGN_IN = 1;
@@ -77,6 +79,15 @@ public class LoginActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
 
+                MessageUser mUser = new MessageUser(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName(),
+                        FirebaseAuth.getInstance().getUid(),
+                        FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                FirebaseDatabase.getInstance()
+                        .getReference()
+                        .child("users")
+                        .child(mUser.getUserID())
+                        .setValue(mUser);
+
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("isDoctor",false);
                 editor.commit();
@@ -100,6 +111,15 @@ public class LoginActivity extends AppCompatActivity {
 
             if (resultCode == RESULT_OK) {
 
+                MessageUser mUser = new MessageUser(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName(),
+                        FirebaseAuth.getInstance().getUid(),
+                        FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                FirebaseDatabase.getInstance()
+                        .getReference()
+                        .child("users")
+                        .child(mUser.getUserID())
+                        .setValue(mUser);
+
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("isDoctor",true);
                 editor.commit();
@@ -109,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                 //MainActivity.isDoctor=true;
                 finishAffinity();
                 startActivity(new Intent(this, DoctorForm.class));
+
 
                 // ...
             } else {
