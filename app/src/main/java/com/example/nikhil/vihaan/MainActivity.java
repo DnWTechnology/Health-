@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     DrawerLayout mDrawerLayout;
     private DatabaseReference mDatabase;
-    // shared prefference for doctor
+    // shared preference for doctor
     static SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
