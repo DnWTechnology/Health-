@@ -33,6 +33,10 @@
  * ***** END LICENSE BLOCK ***** */
 package com.example.nikhil.vihaan.Math;
 
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
 import java.util.concurrent.Future;
 
 /**
@@ -90,7 +94,8 @@ public class DoubleFft1d {
      */
     public DoubleFft1d(int n) {
         if (n < 1) {
-            throw new IllegalArgumentException("n must be greater than 0");
+            //throw new IllegalArgumentException("n must be greater than 0");
+            Log.e("Erorr","n must be greater than 0");
         }
         this.n = n;
 

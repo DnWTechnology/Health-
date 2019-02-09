@@ -72,13 +72,24 @@ public class CautionAdapter extends RecyclerView.Adapter<CautionAdapter.CautionH
 
 //                    case RR:
 
-                    case O2: intent.putExtra("title", "Oxygen Saturation");
+                    case O2: if(cautiousVitalSigns.get(i).getDescriptive()==HIGH) {
+                        intent.putExtra("title", "Oxygen Saturation");
+                    }
+                    else
+                        intent.putExtra("title","High Oxygen Levels");
                         break;
 
                     case HR: if(cautiousVitalSigns.get(i).getDescriptive() == HIGH){
                         intent.putExtra("title", "High Heart Rate");
                     } else {
                         intent.putExtra("title", "Low Blood Pressure");
+                    }
+                        break;
+
+                    case RR:if(cautiousVitalSigns.get(i).getDescriptive() == HIGH){
+                        intent.putExtra("title", "Tachypnea");
+                    } else {
+                        intent.putExtra("title", "Bradypnea ");
                     }
                         break;
 

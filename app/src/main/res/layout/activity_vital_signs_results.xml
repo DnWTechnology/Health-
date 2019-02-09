@@ -179,6 +179,7 @@
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
+            android:layout_margin="10dp"
             android:id="@+id/caution_signs"
             android:layout_below="@id/vital_signs"
             android:layout_width="match_parent"
