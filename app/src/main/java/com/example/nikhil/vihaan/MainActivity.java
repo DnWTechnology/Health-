@@ -135,6 +135,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, UserAppointments.class));
                         return true;
 
+                    case R.id.nav_my_chats:
+                        startActivity(new Intent(MainActivity.this, MyChatsActivity.class));
+                        return true;
+
+
                     case R.id.nav_abt_vitals:
                         startActivity(new Intent(MainActivity.this, AboutVitalSigns.class));
                 }
