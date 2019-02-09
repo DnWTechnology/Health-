@@ -119,9 +119,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_vital_signs:
                         startActivity(new Intent(MainActivity.this,VitalSignsActivity.class));
                         return true;
-                    case R.id.nav_medication:
-                        startActivity(new Intent(MainActivity.this,MedicationsActivity.class));
-                        return true;
                     case R.id.nav_consult:
                         startActivity(new Intent(MainActivity.this,ConsultActivity.class));
                         return true;
