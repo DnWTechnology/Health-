@@ -46,7 +46,7 @@ public class ConsultActivity extends AppCompatActivity {
 
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
-                .child("users")
+                .child("userbase")
                 .child("doctors")
                 .child("details")
                 .limitToFirst(50);

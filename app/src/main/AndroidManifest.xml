@@ -22,6 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MyAppointmentsActivity"></activity>
+        <activity android:name=".UserAppointments"></activity>
         <activity android:name=".TakeAppointmentForm" />
         <activity android:name=".MyChatsActivity" />
         <activity

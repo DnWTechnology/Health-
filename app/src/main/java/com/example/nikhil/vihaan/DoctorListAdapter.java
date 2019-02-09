@@ -67,12 +67,16 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_start_chat:
-                                Intent intent = new Intent(context, checksum.class);
-                                Random generator = new Random();
-                                n=generator.nextInt(n);
-                                intent.putExtra("orderid", "12353223523");
-                                intent.putExtra("custid","7486342");
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                Intent intent = new Intent(context, checksum.class);
+//                                Random generator = new Random();
+//                                n=generator.nextInt(n);
+//                                intent.putExtra("orderid", "n");
+//                                intent.putExtra("chat_charge", model.getMessageCharge());
+//                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                context.startActivity(intent);
+                                final Intent intent = new Intent(context, ChatRoomActivity.class);
+                                intent.putExtra("user_uid", model.getDoctorID());
+                                intent.putExtra("user_name", model.getName());
                                 context.startActivity(intent);
                                 return true;
                             case R.id.action_appointment:

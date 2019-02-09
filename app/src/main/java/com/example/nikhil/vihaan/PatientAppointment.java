@@ -8,6 +8,8 @@ public class PatientAppointment {
     private int age, confirmed;
     private String description;
 
+    public PatientAppointment(){}
+
 
     public PatientAppointment(String patientName, String doctorName, String patientID, String doctorID,
                               Time appointmentTime, String gender, int age, String description) {
@@ -84,5 +86,13 @@ public class PatientAppointment {
 
     public void setDoctorID(String doctorID) {
         this.doctorID = doctorID;
+    }
+
+    public String getTime(){
+        return appointmentTime.getHour()+":"+appointmentTime.getMinutes();
+    }
+
+    public String getDate(){
+        return appointmentTime.getDay()+"."+appointmentTime.getMonth()+"."+appointmentTime.getYear();
     }
 }
