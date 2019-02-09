@@ -8,6 +8,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -40,10 +42,13 @@ public class DoctorActivity extends AppCompatActivity {
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment fragment;
                 int id = menuItem.getItemId();
 
                 if (id == R.id.action_appointment) {
-
+                    fragment = new DoctorAppointmentFragment();
+                    loadFragment(fragment);
+                    return true;
                 } else if (id == R.id.action_chat) {
 
 
@@ -52,6 +57,13 @@ public class DoctorActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+
     }
 
     @Override
