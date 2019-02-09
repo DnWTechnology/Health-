@@ -83,7 +83,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 finishAffinity();
-                startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                startActivity(new Intent(LoginActivity.this,PatientInfoActivity.class));
+                //startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 // ...
             } else {
                 // Sign in failed. If response is null the user canceled the
