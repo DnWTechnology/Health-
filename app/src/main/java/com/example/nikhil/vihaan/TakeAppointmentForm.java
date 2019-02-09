@@ -33,7 +33,7 @@ public class TakeAppointmentForm extends AppCompatActivity {
 
         sref = getSharedPreferences("Info",MODE_PRIVATE);
 
-        submit  = findViewById(R.id.submit);
+        submit  = findViewById(R.id.submit_appointment);
 
         name = findViewById(R.id.name);
         age = findViewById(R.id.Age);
