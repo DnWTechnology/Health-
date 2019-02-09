@@ -86,18 +86,20 @@ public class TakeAppointmentForm extends AppCompatActivity {
                // Nikhil will do it.
                //Add to OnActivity result
 
+
+               Log.i("MyLogsProb", Problem);
                PatientAppointment patientAppointment = new PatientAppointment(Name, doctor, FirebaseAuth.getInstance().getUid(),
 
                        doctorID, appointmentTime, Gender, Integer.parseInt(Age), Problem);
 
-                   FirebaseDatabase.getInstance().getReference().child("users")
+                   FirebaseDatabase.getInstance().getReference().child("userbase")
                            .child("doctors")
                            .child(doctorID)
                            .child("appointments")
                            .push()
                            .setValue(patientAppointment);
 
-                   FirebaseDatabase.getInstance().getReference().child("users")
+                   FirebaseDatabase.getInstance().getReference().child("userbase")
                            .child("patients")
                            .child(FirebaseAuth.getInstance().getUid())
                            .child("appointments")
