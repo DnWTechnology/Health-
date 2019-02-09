@@ -10,4 +10,9 @@
     <color name="pink">#ffb6c1</color>
     <color name="skin">#ffa07a</color>
     <color name="dataset_color">#2f4f4f</color>
+    <color name="myMessageColor">#304FFE</color>
+    <color name="otherMessageColor">#F50057</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="timeColor">#F91795</color>
 </resources>

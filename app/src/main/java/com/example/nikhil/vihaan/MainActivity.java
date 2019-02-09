@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mDatabase = FirebaseDatabase.getInstance().getReference()
-                .child("users")
+                .child("userbase")
                 .child("patients")
                 .child(FirebaseAuth.getInstance().getUid())
                 .child("vitals");
