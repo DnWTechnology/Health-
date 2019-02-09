@@ -23,6 +23,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".TakeAppointmentForm" />
         <activity android:name=".MyChatsActivity" />
+
         <activity
             android:name=".AppointmentActivity"
             android:label="@string/title_activity_appointment" />
