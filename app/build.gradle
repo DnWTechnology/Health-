@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.nikhil.vihaan"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -44,6 +44,22 @@ dependencies {
     implementation 'com.github.medyo:fancybuttons:1.9.0'
     implementation files('libs/commons-math3-3.6.1.jar')
     implementation 'com.jjoe64:graphview:4.2.2'
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -36,9 +36,6 @@ public class DoctorActivity extends AppCompatActivity {
         sharedPref= getSharedPreferences("doctor",Context.MODE_PRIVATE);
         doctorDetails = sharedPref.getBoolean("isDoctor",false);
 
-        if(doctorDetails!=true) {
-            startActivity(new Intent(this, DoctorForm.class));
-        }
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.nav_view_main);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

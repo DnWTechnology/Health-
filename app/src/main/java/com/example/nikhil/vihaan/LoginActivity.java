@@ -107,8 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                 //Toast.makeText(this, "DOCTORRR", Toast.LENGTH_SHORT).show();
                 //MainActivity.isDoctor=true;
                 finishAffinity();
-                startActivity(new Intent(LoginActivity.this,DoctorActivity.class));
-
+                startActivity(new Intent(this, DoctorForm.class));
 
                 // ...
             } else {

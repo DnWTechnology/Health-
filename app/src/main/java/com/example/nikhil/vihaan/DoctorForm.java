@@ -1,5 +1,6 @@
 package com.example.nikhil.vihaan;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +53,9 @@ public class DoctorForm extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("doctorDetails",true);
                 editor.apply();
+
+                startActivity(new Intent(DoctorForm.this, DoctorActivity.class));
+
             }
         });
     }
