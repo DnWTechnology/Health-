@@ -34,6 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart1"
                 android:layout_width="380dp"
@@ -61,6 +64,7 @@
                 android:layout_height="250dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="840dp" />
+                </RelativeLayout>
 
             </ScrollView>
 
