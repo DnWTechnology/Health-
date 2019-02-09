@@ -1,6 +1,8 @@
 package com.example.nikhil.vihaan;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -22,6 +24,8 @@ import com.google.android.gms.tasks.Task;
 
 public class DoctorActivity extends AppCompatActivity {
 
+    SharedPreferences sharedPref;
+    Boolean doctorDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +33,12 @@ public class DoctorActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        sharedPref= getSharedPreferences("doctor",Context.MODE_PRIVATE);
+        doctorDetails = sharedPref.getBoolean("isDoctor",false);
+
+        if(doctorDetails!=true) {
+            startActivity(new Intent(this, DoctorForm.class));
+        }
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.nav_view_main);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
