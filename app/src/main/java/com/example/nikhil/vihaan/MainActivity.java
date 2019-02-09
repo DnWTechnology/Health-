@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                     chart4.invalidate(); // refresh
                     chart4.notifyDataSetChanged();
 
-                    
+
                 }
             }
 
