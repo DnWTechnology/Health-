@@ -78,11 +78,17 @@ public class TakeAppointmentForm extends AppCompatActivity {
            public void onClick(View view) {
                // update databse of appointments
 
+               //Add Paytm Okay
+
+               // Nikhil will do it.
+               //Add to OnActivity result
+
                PatientAppointment patientAppointment = new PatientAppointment(Name, doctor, FirebaseAuth.getInstance().getUid(),
                        doctorID, appointmentTime.getTimeStamp(), Gender, Integer.getInteger(Age), Problem, 0);
 
                FirebaseDatabase.getInstance().getReference().child("users")
                        .child("doctors")
+                       .child(doctorID)
                        .child("appointments")
                        .child("pending")
                        .push()
@@ -90,6 +96,7 @@ public class TakeAppointmentForm extends AppCompatActivity {
 
                FirebaseDatabase.getInstance().getReference().child("users")
                        .child("patients")
+                       .child(FirebaseAuth.getInstance().getUid())
                        .child("appointments")
                        .child("pending")
                        .push()

@@ -57,7 +57,7 @@ public class VitalSignsResults extends AppCompatActivity {
                     .child("patients")
                     .child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
                     .child("vitals")
-                    .child(String.valueOf(new Date().getTime()))
+                    .push()
                     .setValue(new PatientSigns(VBP1, VBP2, VHR, VO2, VRR));
 
 //            VRR = 11;
