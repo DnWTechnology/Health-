@@ -177,9 +177,10 @@ public class MainActivity extends AppCompatActivity {
                         LineData lineData1 = new LineData(dataSet1);
                         chart1.setData(lineData1);
                         Legend legend1 = chart1.getLegend();
+                        legend1.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
                         legend1.setTextColor(R.color.colorPrimary);
                         legend1.setTypeface(Typeface.DEFAULT_BOLD);
-                        legend1.setTextSize(12f);
+                        legend1.setTextSize(25f);
                         chart1.invalidate(); // refresh
                         chart1.notifyDataSetChanged();
 
