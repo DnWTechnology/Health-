@@ -84,12 +84,8 @@ public class MainActivity extends AppCompatActivity {
         if (user == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         } else {
-            if (isDoctor) {
-                finishAffinity();
-                startActivity(new Intent(MainActivity.this, DoctorActivity.class));
-            } else {
-            }
-        }
+
+
 
         final List<Entry> HRentries = new ArrayList<Entry>();
         final List<Entry> Sysentries = new ArrayList<Entry>();
@@ -227,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+    }
     }
 
     @Override
