@@ -76,7 +76,7 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
                                 context.startActivity(intent);
                                 return true;
                             case R.id.action_appointment:
-                                Toast.makeText(v.getContext(), "Starting chat", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(v.getContext(), TakeAppointmentForm.class);
                                 return true;
                             default:
                                 return false;
