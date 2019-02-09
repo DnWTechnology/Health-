@@ -52,8 +52,8 @@ public class Time {
         this.year = year;
     }
 
-    public long getTimeStamp(){
-        return Long.parseLong(java.sql.Timestamp.valueOf(String.valueOf(year)+ "-" + String.valueOf(month) + "-" + String.valueOf(day)
-                + " " + String.valueOf(hour) + ":" + String.valueOf(minutes) + ":" + "0.0").toString());
-    }
+//    public long getTimeStamp(){
+//        return Long.parseLong(java.sql.Timestamp.valueOf(String.valueOf(year)+ "-" + String.valueOf(month) + "-" + String.valueOf(day)
+//                + " " + String.valueOf(hour) + ":" + String.valueOf(minutes) + ":" + String.valueOf(0)).toString());
+//    }
 }
