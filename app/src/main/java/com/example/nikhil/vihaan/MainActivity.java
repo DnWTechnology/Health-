@@ -85,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
         if (user == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         } else {
-            if (isDoctor) {
-                finishAffinity();
-                startActivity(new Intent(MainActivity.this, DoctorActivity.class));
-            } else {
+
+            if(isDoctor){
+                startActivity(new Intent(this,DoctorActivity.class));
             }
-        }
+
+
 
         final List<Entry> HRentries = new ArrayList<Entry>();
         final List<Entry> Sysentries = new ArrayList<Entry>();
@@ -198,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
                         chart2.invalidate(); // refresh
                         chart2.notifyDataSetChanged();*/
 
+
                         LineDataSet dataSet3 = new LineDataSet(Respientries, "Breaths per minute"); // add entries to dataset
                         dataSet3.setColor(R.color.maroon);
                         chart3.setBackgroundColor(getResources().getColor(R.color.lightblue));
@@ -238,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+    }
     }
 
     @Override

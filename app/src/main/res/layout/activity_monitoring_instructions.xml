@@ -6,6 +6,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fancy="http://schemas.android.com/tools">
 
+    <TextView
+        android:id="@+id/head"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:text="Monitoring Instructions"/>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_centerHorizontal="true"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
@@ -44,7 +58,7 @@
         android:paddingBottom="10dp"
         fancy:fb_borderColor="#FFFFFF"
         fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="#7ab800"
+        fancy:fb_defaultColor="@color/colorPrimaryDark"
         fancy:fb_focusColor="#9bd823"
         fancy:fb_radius="30dp"
         fancy:fb_text="START"
