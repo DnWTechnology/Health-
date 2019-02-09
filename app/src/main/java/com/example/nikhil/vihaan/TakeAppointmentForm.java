@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -44,8 +45,10 @@ public class TakeAppointmentForm extends AppCompatActivity {
         final String Gender = sref.getString("Gender","M");
 
         name.setText(Name);
-        age.setText(Age);
-        gender.setText(Gender);
+
+        age.setText("Age: "+Age);
+
+        gender.setText("Gender: " +Gender);
 
         picker = findViewById(R.id.date_picker);
         picker_time = findViewById(R.id.time_picker);
@@ -60,10 +63,10 @@ public class TakeAppointmentForm extends AppCompatActivity {
 
         final String doctor = getIntent().getStringExtra("DoctorName");
         final String doctorID = getIntent().getStringExtra("DoctorID");
-        String fees = getIntent().getStringExtra("Fees");
+        String fees = String.valueOf(getIntent().getIntExtra("Fees",100));
 
-        doc.setText(doctor);
-        fee.setText(fees);
+        doc.setText("Dr."+doctor);
+        fee.setText("Fee: "+fees);
 
 
 
@@ -84,22 +87,30 @@ public class TakeAppointmentForm extends AppCompatActivity {
                //Add to OnActivity result
 
                PatientAppointment patientAppointment = new PatientAppointment(Name, doctor, FirebaseAuth.getInstance().getUid(),
-                       doctorID, appointmentTime, Gender, sref.getInt("Age",20), Problem);
 
-               FirebaseDatabase.getInstance().getReference().child("userbase")
-                       .child("doctors")
-                       .child(doctorID)
-                       .child("appointments")
-                       .push()
-                       .setValue(patientAppointment);
+                       doctorID, appointmentTime, Gender, Integer.parseInt(Age), Problem);
 
-               FirebaseDatabase.getInstance().getReference().child("userbase")
-                       .child("patients")
-                       .child(FirebaseAuth.getInstance().getUid())
-                       .child("appointments")
-                       .push()
-                       .setValue(patientAppointment);
+                   FirebaseDatabase.getInstance().getReference().child("users")
+                           .child("doctors")
+                           .child(doctorID)
+                           .child("appointments")
+                           .child("pending")
+                           .push()
+                           .setValue(patientAppointment);
+
+                   FirebaseDatabase.getInstance().getReference().child("users")
+                           .child("patients")
+                           .child(FirebaseAuth.getInstance().getUid())
+                           .child("appointments")
+                           .child("pending")
+                           .push()
+                           .setValue(patientAppointment);
+
+                   finish();
+                   startActivity(new Intent(TakeAppointmentForm.this,MyAppointmentsActivity.class));
+
            }
+
        });
 
 
