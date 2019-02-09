@@ -36,6 +36,11 @@
                 android:layout_height="200dip"
                 android:id="@+id/graph" />
 
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="250dp"/>
 
         </FrameLayout>
 

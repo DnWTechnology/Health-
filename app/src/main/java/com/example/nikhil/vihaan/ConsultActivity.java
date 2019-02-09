@@ -37,8 +37,8 @@ public class ConsultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ConsultActivity.this, checksum.class);
-                intent.putExtra("orderid", "12345");
-                intent.putExtra("custid", "98757234");
+                intent.putExtra("orderid", "1234567");
+                intent.putExtra("custid", "9875724");
                 startActivity(intent);
             }
         });

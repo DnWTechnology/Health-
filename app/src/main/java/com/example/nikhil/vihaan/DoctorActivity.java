@@ -51,17 +51,7 @@ public class DoctorActivity extends AppCompatActivity {
 
 
                 }
-                else if( id==R.id.action_logout){
-                    MainActivity.isDoctor=false;
-                    MainActivity.sharedPref.edit().clear().commit();
-                    AuthUI.getInstance()
-                            .signOut(DoctorActivity.this)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    startActivity(new Intent(DoctorActivity.this,MainActivity.class));
-                                }
-                            });
-                }
+
                 return true;
             }
         });
@@ -84,6 +74,17 @@ public class DoctorActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        else if( id==R.id.action_logout){
+            MainActivity.isDoctor=false;
+            MainActivity.sharedPref.edit().clear().commit();
+            AuthUI.getInstance()
+                    .signOut(DoctorActivity.this)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        public void onComplete(@NonNull Task<Void> task) {
+                            startActivity(new Intent(DoctorActivity.this,MainActivity.class));
+                        }
+                    });
         }
 
         return super.onOptionsItemSelected(item);

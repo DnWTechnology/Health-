@@ -6,20 +6,6 @@
 
     <group>
         <item
-            android:id="@+id/action_appointment"
-            android:icon="@drawable/ic_people_outline_black_24dp"
-            android:orderInCategory="100"
-            android:title="Appointments"
-            app:showAsAction="never" />
-
-        <item
-            android:id="@+id/action_chat"
-            android:icon="@drawable/ic_chat_black_24dp"
-            android:orderInCategory="100"
-            android:title="Chat"
-            app:showAsAction="never" />
-
-        <item
             android:id="@+id/action_logout"
             android:icon="@drawable/logout_icon"
             android:orderInCategory="100"
