@@ -109,48 +109,44 @@ public class MainActivity extends AppCompatActivity {
                 emailText.setText(user.getEmail());
 
             }
-            navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    switch (menuItem.getItemId()) {
-                        case R.id.nav_vital_signs:
-                            startActivity(new Intent(MainActivity.this, VitalSignsActivity.class));
-                            return true;
-                        case R.id.nav_consult:
-                            startActivity(new Intent(MainActivity.this, ConsultActivity.class));
-                            return true;
-                        case R.id.nav_logout:
-                            sharedPref.edit().clear().commit();
-                            AuthUI.getInstance()
-                                    .signOut(MainActivity.this)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            startActivity(new Intent(MainActivity.this, MainActivity.class));
-                                        }
-                                    });
-
-                        case R.id.nav_my_appoints:
-                            startActivity(new Intent(MainActivity.this, UserAppointments.class));
-                            return true;
-
-                        case R.id.nav_my_chats:
-                            startActivity(new Intent(MainActivity.this, MyChatsActivity.class));
-                            return true;
-
-                        case R.id.nav_abt_vitals:
-                            startActivity(new Intent(MainActivity.this, AboutVitalSigns.class));
-                            return true;
-
-                        case R.id.nav_settings:
-                            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-                            return true;
-
-                    }
 
 
-                    return false;
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_vital_signs:
+                        startActivity(new Intent(MainActivity.this, VitalSignsActivity.class));
+                        return true;
+                    case R.id.nav_consult:
+                        startActivity(new Intent(MainActivity.this, ConsultActivity.class));
+                        return true;
+                    case R.id.nav_logout:
+                        sharedPref.edit().clear().commit();
+                        AuthUI.getInstance()
+                                .signOut(MainActivity.this)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        startActivity(new Intent(MainActivity.this, MainActivity.class));
+                                    }
+                                });
+
+                    case R.id.nav_my_appoints:
+                        startActivity(new Intent(MainActivity.this, UserAppointments.class));
+                        return true;
+
+                    case R.id.nav_my_chats:
+                        startActivity(new Intent(MainActivity.this, MyChatsActivity.class));
+                        return true;
+
+
+                    case R.id.nav_abt_vitals:
+                        startActivity(new Intent(MainActivity.this, AboutVitalSigns.class));
+                        return true;
                 }
-            });
+
+                return false;
+            }});
 
             mDatabase = FirebaseDatabase.getInstance().getReference()
                     .child("userbase")

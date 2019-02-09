@@ -25,9 +25,6 @@
         <activity android:name=".UserAppointments"></activity>
         <activity android:name=".TakeAppointmentForm" />
         <activity android:name=".MyChatsActivity" />
-        <activity
-            android:name=".DoctorAppointmentActivity"
-            android:label="@string/title_activity_appointment" />
         <activity android:name=".PatientInfoActivity" />
         <activity android:name=".DoctorInfo" />
         <activity
