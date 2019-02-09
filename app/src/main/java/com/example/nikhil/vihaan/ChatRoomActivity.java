@@ -250,7 +250,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     }
 
     private void sendMessageToChats(String from, String to, String message) {
-        Log.i("MyLOgs", myData.getUserName() + " "+myData.getEmailID());
+//        Log.i("MyLOgs", myData.getUserName() + " "+myData.getEmailID());
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
         dbRef.child("chats")
                 .child(from)

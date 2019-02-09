@@ -86,31 +86,31 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         } else {
 
-            if(isDoctor){
-                startActivity(new Intent(this,DoctorActivity.class));
+            if (isDoctor) {
+                startActivity(new Intent(this, DoctorActivity.class));
             }
 
 
+            final List<Entry> HRentries = new ArrayList<Entry>();
+            final List<Entry> Sysentries = new ArrayList<Entry>();
+            final List<Entry> Diasentries = new ArrayList<Entry>();
+            final List<Entry> OSentries = new ArrayList<Entry>();
+            final List<Entry> Respientries = new ArrayList<Entry>();
+            mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+            navigationView = findViewById(R.id.nav_view);
+
+            View header = navigationView.getHeaderView(0);
+            TextView navText = header.findViewById(R.id.nav_text);
+            TextView emailText = header.findViewById(R.id.nav_email);
+            ImageView img = header.findViewById(R.id.img);
+            if (user != null) {
+                navText.setText("Hi! " + user.getDisplayName());
+                Picasso.get().load(user.getPhotoUrl()).into(img);
+                emailText.setText(user.getEmail());
+
+            }
 
 
-        final List<Entry> HRentries = new ArrayList<Entry>();
-        final List<Entry> Sysentries = new ArrayList<Entry>();
-        final List<Entry> Diasentries = new ArrayList<Entry>();
-        final List<Entry> OSentries = new ArrayList<Entry>();
-        final List<Entry> Respientries = new ArrayList<Entry>();
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-
-        View header = navigationView.getHeaderView(0);
-        TextView navText = header.findViewById(R.id.nav_text);
-        TextView emailText = header.findViewById(R.id.nav_email);
-        ImageView img = header.findViewById(R.id.img);
-        if (user != null) {
-            navText.setText("Hi! " + user.getDisplayName());
-            Picasso.get().load(user.getPhotoUrl()).into(img);
-            emailText.setText(user.getEmail());
-
-        }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -142,52 +142,51 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.nav_abt_vitals:
                         startActivity(new Intent(MainActivity.this, AboutVitalSigns.class));
+                        return true;
                 }
 
-
                 return false;
-            }
-        });
+            }});
 
-        mDatabase = FirebaseDatabase.getInstance().getReference()
-                .child("userbase")
-                .child("patients")
-                .child(FirebaseAuth.getInstance().getUid())
-                .child("vitals");
+            mDatabase = FirebaseDatabase.getInstance().getReference()
+                    .child("userbase")
+                    .child("patients")
+                    .child(FirebaseAuth.getInstance().getUid())
+                    .child("vitals");
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot vitals : dataSnapshot.getChildren()) {
-                    Log.d("data", "onDataChange: " + vitals.toString());
-                    PatientSigns signs = vitals.getValue(PatientSigns.class);
-                    listSigns.add(signs);
-                    Log.i("retrieved: ", Integer.toString(listSigns.get(i).getHeartRate()));
-                    HRentries.add(new Entry(1 + i, listSigns.get(i).getHeartRate()));
-                    Sysentries.add(new Entry(1 + i, listSigns.get(i).getSystolic()));
-                    Diasentries.add(new Entry(1 + i, listSigns.get(i).getDiastolic()));
-                    OSentries.add(new Entry(1 + i, listSigns.get(i).getOxygenSaturation()));
-                    Respientries.add(new Entry(1 + i, listSigns.get(i).getRespirationRate()));
-                    //Log.d("class", "onDataChange: "+signs.getDiastolic());
-                    //Log.d("entries retrieved", "onDataChange: "+HRentries.get(i).getY());
-                    i = i + 1;
+                    for (DataSnapshot vitals : dataSnapshot.getChildren()) {
+                        Log.d("data", "onDataChange: " + vitals.toString());
+                        PatientSigns signs = vitals.getValue(PatientSigns.class);
+                        listSigns.add(signs);
+                        Log.i("retrieved: ", Integer.toString(listSigns.get(i).getHeartRate()));
+                        HRentries.add(new Entry(1 + i, listSigns.get(i).getHeartRate()));
+                        Sysentries.add(new Entry(1 + i, listSigns.get(i).getSystolic()));
+                        Diasentries.add(new Entry(1 + i, listSigns.get(i).getDiastolic()));
+                        OSentries.add(new Entry(1 + i, listSigns.get(i).getOxygenSaturation()));
+                        Respientries.add(new Entry(1 + i, listSigns.get(i).getRespirationRate()));
+                        //Log.d("class", "onDataChange: "+signs.getDiastolic());
+                        //Log.d("entries retrieved", "onDataChange: "+HRentries.get(i).getY());
+                        i = i + 1;
 
-                    LineDataSet dataSet1 = new LineDataSet(HRentries, "Beats per minute"); // add entries to dataset
-                    dataSet1.setColor(R.color.maroon);
-                    //dataSet1.getLabel().
-                    chart1.setBackgroundColor(getResources().getColor(R.color.lime));
-                    Description description1 = new Description();
-                    description1.setText("Heart Rate");
-                    chart1.setDescription(description1);
-                    LineData lineData1 = new LineData(dataSet1);
-                    chart1.setData(lineData1);
-                    Legend legend1 = chart1.getLegend();
-                    //legend1.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
-                    legend1.setTypeface(Typeface.DEFAULT_BOLD);
-                    legend1.setTextSize(20f);
-                    chart1.invalidate(); // refresh
-                    chart1.notifyDataSetChanged();
+                        LineDataSet dataSet1 = new LineDataSet(HRentries, "Beats per minute"); // add entries to dataset
+                        dataSet1.setColor(R.color.maroon);
+                        //dataSet1.getLabel().
+                        chart1.setBackgroundColor(getResources().getColor(R.color.lime));
+                        Description description1 = new Description();
+                        description1.setText("Heart Rate");
+                        chart1.setDescription(description1);
+                        LineData lineData1 = new LineData(dataSet1);
+                        chart1.setData(lineData1);
+                        Legend legend1 = chart1.getLegend();
+                        //legend1.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
+                        legend1.setTypeface(Typeface.DEFAULT_BOLD);
+                        legend1.setTextSize(20f);
+                        chart1.invalidate(); // refresh
+                        chart1.notifyDataSetChanged();
 
                         LineDataSet dataSet2 = new LineDataSet(Sysentries, "Systolic (mm Hg)"); // add entries to dataset
                         LineDataSet dataSet = new LineDataSet(Diasentries, "Diastolic (mm Hg)"); // add entries to dataset
@@ -242,12 +241,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
-    }
+                }
+            });
+        }
     }
 
     @Override
@@ -267,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             // added temporary intent to test remedy functionality
-            Intent temp = new Intent(this, tempActivity.class);
+            Intent temp = new Intent(this, SettingsActivity.class);
             startActivity(temp);
             return true;
         }
