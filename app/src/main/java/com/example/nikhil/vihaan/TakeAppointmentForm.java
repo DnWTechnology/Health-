@@ -106,6 +106,9 @@ public class TakeAppointmentForm extends AppCompatActivity {
                            .push()
                            .setValue(patientAppointment);
 
+                   finish();
+                   startActivity(new Intent(TakeAppointmentForm.this,MyAppointmentsActivity.class));
+
            }
 
        });

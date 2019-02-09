@@ -56,6 +56,7 @@
         <activity android:name=".MonitoringInstructions" />
         <activity android:name=".RecordVitalSigns" />
         <activity android:name=".VitalSignsResults" />
+        <activity android:name=".SettingsActivity"/>
         <activity android:name=".tempActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".RemedyActivity" />
