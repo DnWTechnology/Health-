@@ -59,6 +59,8 @@
         <activity android:name=".InfoActivity" />
         <activity android:name=".RemedyActivity" />
         <activity android:name=".checksum" />
+        <activity android:name=".ChatRoomActivity" />
+
         <activity
             android:name="com.paytm.pgsdk.PaytmPGActivity"
             android:configChanges="keyboardHidden|orientation|keyboard"
