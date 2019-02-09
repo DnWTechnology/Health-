@@ -33,7 +33,7 @@ public class TakeAppointmentForm extends AppCompatActivity {
 
         sref = getSharedPreferences("Info",MODE_PRIVATE);
 
-        submit  = findViewById(R.id.submit);
+        submit  = findViewById(R.id.submit_appointment);
 
         name = findViewById(R.id.name);
         age = findViewById(R.id.Age);
@@ -84,7 +84,7 @@ public class TakeAppointmentForm extends AppCompatActivity {
                //Add to OnActivity result
 
                PatientAppointment patientAppointment = new PatientAppointment(Name, doctor, FirebaseAuth.getInstance().getUid(),
-                       doctorID, appointmentTime.getTimeStamp(), Gender, Integer.getInteger(Age), Problem, 0);
+                       doctorID, appointmentTime, Gender, Integer.getInteger(Age), Problem);
 
                FirebaseDatabase.getInstance().getReference().child("users")
                        .child("doctors")

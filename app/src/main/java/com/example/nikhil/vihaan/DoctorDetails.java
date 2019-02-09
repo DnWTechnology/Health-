@@ -80,6 +80,14 @@ public class DoctorDetails {
         return appointmentCharge;
     }
 
+    public String getDoctorID() {
+        return doctorID;
+    }
+
+    public void setDoctorID(String doctorID) {
+        this.doctorID = doctorID;
+    }
+
     public void setAppointmentCharge(int appointmentCharge) {
         this.appointmentCharge = appointmentCharge;
     }

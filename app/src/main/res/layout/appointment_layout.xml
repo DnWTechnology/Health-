@@ -9,63 +9,53 @@
     android:layout_marginLeft="12dp"
     android:background="@drawable/doctor_layout_bg">
 
-
-    <ImageView
-        android:id="@+id/doctor_icon"
+    <TextView
+        android:id="@+id/appointment_name"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:src="@drawable/fui_ic_googleg_color_24dp"/>
-
-    <TextView
-        android:id="@+id/doctorName"
-        android:layout_alignTop="@id/doctor_icon"
-        android:layout_toEndOf="@id/doctor_icon"
-        android:layout_marginStart="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:text="NAME"
+        android:text="Patient Name: Nikhil Sachdeva"
         android:textSize="20sp" />
 
 
     <TextView
-        android:id="@+id/doctor_qual"
+        android:id="@+id/appointment_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@id/doctorName"
-        android:layout_below="@id/doctorName"
+        android:layout_alignStart="@id/appointment_name"
+        android:layout_below="@id/appointment_name"
         android:layout_marginTop="4dp"
         android:textSize="18sp"
-        android:text="Qualification"
+        android:text="Description: Dimagi kharabi"
         android:textColor="@android:color/white" />
 
     <ImageView
-        android:id="@+id/person_icon"
+        android:id="@+id/clock_icon"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_below="@id/doctor_qual"
+        android:layout_below="@id/appointment_desc"
         android:layout_alignParentStart="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:padding="2dp"
         android:background="@color/maroon"
-        android:src="@drawable/ic_appointment" />
+        android:src="@drawable/ic_clock" />
 
     <TextView
-        android:id="@+id/appointment_fees"
+        android:id="@+id/appointment_time"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_alignTop="@id/person_icon"
-        android:layout_toEndOf="@id/person_icon"
+        android:layout_alignTop="@id/clock_icon"
+        android:layout_toEndOf="@id/clock_icon"
         android:paddingStart="8dp"
         android:paddingEnd="4dp"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:text="Rs. 200"
+        android:text="7:00 AM"
         android:background="@color/maroon" />
 
 

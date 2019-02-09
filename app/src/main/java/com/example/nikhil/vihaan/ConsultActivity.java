@@ -48,6 +48,7 @@ public class ConsultActivity extends AppCompatActivity {
                 .getReference()
                 .child("users")
                 .child("doctors")
+                .child("details")
                 .limitToFirst(50);
 
         DoctorListAdapter doctorListAdapter = new DoctorListAdapter(R.layout.doctor_info_layout, query, getApplicationContext());
