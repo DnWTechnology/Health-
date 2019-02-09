@@ -21,6 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MyAppointmentsActivity"></activity>
         <activity android:name=".UserAppointments"></activity>
         <activity android:name=".TakeAppointmentForm" />
         <activity android:name=".MyChatsActivity" />
@@ -52,6 +53,7 @@
         <activity android:name=".MonitoringInstructions" />
         <activity android:name=".RecordVitalSigns" />
         <activity android:name=".VitalSignsResults" />
+        <activity android:name=".SettingsActivity"/>
         <activity android:name=".tempActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".RemedyActivity" />

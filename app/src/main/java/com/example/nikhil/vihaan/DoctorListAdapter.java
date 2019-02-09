@@ -77,6 +77,7 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
                                 final Intent intent = new Intent(context, ChatRoomActivity.class);
                                 intent.putExtra("user_uid", model.getDoctorID());
                                 intent.putExtra("user_name", model.getName());
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 context.startActivity(intent);
                                 return true;
                             case R.id.action_appointment:

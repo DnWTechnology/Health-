@@ -27,7 +27,7 @@ public class DoctorAppointmentFragment extends Fragment {
 
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
-                .child("users")
+                .child("userbase")
                 .child("doctors")
                 .child(FirebaseAuth.getInstance().getUid())
                 .child("appointments")
