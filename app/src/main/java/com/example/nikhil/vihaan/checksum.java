@@ -19,7 +19,6 @@ import java.util.Map;
 
 public class checksum extends AppCompatActivity implements PaytmPaymentTransactionCallback {
     String custid="", orderId="", mid="";
-    int chatCharge;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +27,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Intent intent = getIntent();
         orderId = intent.getExtras().getString("orderid");
-        chatCharge = intent.getExtras().getInt("chat_charge");
+        custid = intent.getExtras().getString("custid");
         mid = "jiFswe09569048044799"; /// your marchant key
         sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
         dl.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -83,7 +82,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             //these are mandatory parameters
             paramMap.put("MID", mid); //MID provided by paytm
             paramMap.put("ORDER_ID", orderId);
-            paramMap.put("CUST_ID", "24235");
+            paramMap.put("CUST_ID", custid);
             paramMap.put("CHANNEL_ID", "WAP");
             paramMap.put("TXN_AMOUNT", "500");
             paramMap.put("WEBSITE", "WEBSTAGING");

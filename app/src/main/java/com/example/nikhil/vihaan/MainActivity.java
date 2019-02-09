@@ -22,9 +22,14 @@ import com.firebase.ui.auth.AuthUI;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+
+
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -149,23 +154,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-
-                        LineDataSet dataSet1 = new LineDataSet(HRentries, "Beats per minute"); // add entries to dataset
-                        dataSet1.setColor(R.color.maroon);
-                        chart1.setBackgroundColor(getResources().getColor(R.color.lime));
-                        Description description1 = new Description();
-                        description1.setText("Heart Rate");
-                        chart1.setDescription(description1);
-                        LineData lineData1 = new LineData(dataSet1);
-                        chart1.setData(lineData1);
-                        Legend legend1 = chart1.getLegend();
-                        legend1.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
-                        legend1.setTextColor(R.color.colorPrimary);
-                        legend1.setTypeface(Typeface.DEFAULT_BOLD);
-                        legend1.setTextSize(25f);
-                        chart1.invalidate(); // refresh
-                        chart1.notifyDataSetChanged();
-
                 for (DataSnapshot vitals : dataSnapshot.getChildren()) {
                     Log.d("data", "onDataChange: " + vitals.toString());
                     PatientSigns signs = vitals.getValue(PatientSigns.class);
@@ -180,22 +168,42 @@ public class MainActivity extends AppCompatActivity {
                     //Log.d("entries retrieved", "onDataChange: "+HRentries.get(i).getY());
                     i = i + 1;
 
+                    LineDataSet dataSet1 = new LineDataSet(HRentries, "Beats per minute"); // add entries to dataset
+                    dataSet1.setColor(R.color.maroon);
+                    //dataSet1.getLabel().
+                    chart1.setBackgroundColor(getResources().getColor(R.color.lime));
+                    Description description1 = new Description();
+                    description1.setText("Heart Rate");
+                    chart1.setDescription(description1);
+                    LineData lineData1 = new LineData(dataSet1);
+                    chart1.setData(lineData1);
+                    Legend legend1 = chart1.getLegend();
+                    //legend1.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
+                    legend1.setTypeface(Typeface.DEFAULT_BOLD);
+                    legend1.setTextSize(20f);
+                    chart1.invalidate(); // refresh
+                    chart1.notifyDataSetChanged();
 
-                        /*LineDataSet dataSet2 = new LineDataSet(OSentries, "Heart Rate"); // add entries to dataset
-                        dataSet2.setColor(R.color.maroon);
+                        LineDataSet dataSet2 = new LineDataSet(Sysentries, "Systolic (mm Hg)"); // add entries to dataset
+                        LineDataSet dataSet = new LineDataSet(Diasentries, "Diastolic (mm Hg)"); // add entries to dataset
+                        dataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
+                        dataSet2.setAxisDependency(YAxis.AxisDependency.LEFT);
+                        dataSet.setColor(R.color.maroon);
+                        dataSet2.setColor(R.color.design_default_color_primary);
+                        List<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+                        dataSets.add(dataSet);
+                        dataSets.add(dataSet2);
+                        LineData data = new LineData(dataSets);
+                        chart2.setData(data);
                         chart2.setBackgroundColor(getResources().getColor(R.color.skin));
                         Description description2 = new Description();
-                        description2.setText("Oxygen Saturation");
+                        description2.setText("Blood pressure");
                         chart2.setDescription(description2);
-                        LineData lineData2 = new LineData(dataSet2);
-                        chart2.setData(lineData2);
                         Legend legend2 = chart2.getLegend();
                         legend2.setTypeface(Typeface.DEFAULT_BOLD);
-                        legend2.setTextSize(25f);
-                        legend2.setTextColor(R.color.colorPrimary);
-                        legend2.setTextSize(12f);
+                        legend2.setTextSize(20f);
                         chart2.invalidate(); // refresh
-                        chart2.notifyDataSetChanged();*/
+                        chart2.notifyDataSetChanged();
 
 
                         LineDataSet dataSet3 = new LineDataSet(Respientries, "Breaths per minute"); // add entries to dataset
@@ -208,9 +216,7 @@ public class MainActivity extends AppCompatActivity {
                         chart3.setData(lineData3);
                         Legend legend3 = chart3.getLegend();
                         legend3.setTypeface(Typeface.DEFAULT_BOLD);
-                        legend3.setTextSize(25f);
-                        legend3.setTextColor(R.color.colorPrimary);
-                        legend3.setTextSize(12f);
+                        legend3.setTextSize(20f);
                         chart3.invalidate(); // refresh
                         chart3.notifyDataSetChanged();
 
@@ -224,9 +230,7 @@ public class MainActivity extends AppCompatActivity {
                         chart4.setData(lineData4);
                         Legend legend4 = chart4.getLegend();
                         legend4.setTypeface(Typeface.DEFAULT_BOLD);
-                        legend4.setTextSize(25f);
-                        legend4.setTextColor(R.color.colorPrimary);
-                        legend4.setTextSize(12f);
+                        legend4.setTextSize(20f);
                         chart4.invalidate(); // refresh
                         chart4.notifyDataSetChanged();
 

@@ -32,13 +32,13 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_my_appoints"
-            android:icon="@drawable/logout_icon"
+            android:icon="@drawable/ic_appointment"
             android:orderInCategory="100"
             android:title="My Appointments"
             app:showAsAction="never" />
         <item
             android:id="@+id/nav_my_chats"
-            android:icon="@drawable/settings_icon"
+            android:icon="@drawable/ic_chat_black_24dp"
             android:orderInCategory="100"
             android:title="My Chats"
             app:showAsAction="never" />
