@@ -4,6 +4,8 @@ public class Time {
 
     private int hour, minutes, day, month, year;
 
+    public Time(){}
+
     public Time(int hour, int minutes, int day, int month, int year) {
         this.hour = hour;
         this.minutes = minutes;
