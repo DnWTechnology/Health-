@@ -20,13 +20,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
+
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -200,8 +200,8 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             // added temporary intent to test remedy functionality
-            Intent temp = new Intent(this,tempActivity.class);
-            startActivity(temp);
+            Intent settings = new Intent(this,SettingsActivity.class);
+            startActivity(settings);
             return true;
         }
         if(id == android.R.id.home){
