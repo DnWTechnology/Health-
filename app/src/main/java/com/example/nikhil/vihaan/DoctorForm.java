@@ -50,8 +50,8 @@ public class DoctorForm extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference()
                         .child("users")
                         .child("doctors")
-                        .child("details")
                         .child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                        .child("details")
                         .setValue(details);
                 Toast.makeText(DoctorForm.this, "Details Updated Successfully", Toast.LENGTH_SHORT).show();
 
