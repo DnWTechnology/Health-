@@ -21,13 +21,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
-
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,7 +48,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    int i=0;
+    int i = 0;
 
     static boolean isDoctor = false;
     ArrayList<PatientSigns> listSigns = new ArrayList<>();
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     // shared preference for doctor
     static SharedPreferences sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,27 +73,23 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // using shared preferrence to distinguish between doctor and user
-         sharedPref= getSharedPreferences("doctor",Context.MODE_PRIVATE);
-         isDoctor = sharedPref.getBoolean("isDoctor",true);
+        sharedPref = getSharedPreferences("doctor", Context.MODE_PRIVATE);
+        isDoctor = sharedPref.getBoolean("isDoctor", true);
 
-        if(getSupportActionBar()!=null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
         }
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user==null) {
+        if (user == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        }
-
-            else {
-                if(isDoctor) {
-                    finishAffinity();
-                    startActivity(new Intent(MainActivity.this, DoctorActivity.class));
-                }
-                else
-                    {
-                }
+        } else {
+            if (isDoctor) {
+                finishAffinity();
+                startActivity(new Intent(MainActivity.this, DoctorActivity.class));
+            } else {
+            }
         }
 
         final List<Entry> HRentries = new ArrayList<Entry>();
@@ -100,14 +97,14 @@ public class MainActivity extends AppCompatActivity {
         final List<Entry> Diasentries = new ArrayList<Entry>();
         final List<Entry> OSentries = new ArrayList<Entry>();
         final List<Entry> Respientries = new ArrayList<Entry>();
-        mDrawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
-        navigationView=findViewById(R.id.nav_view);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
 
         View header = navigationView.getHeaderView(0);
         TextView navText = header.findViewById(R.id.nav_text);
-        TextView emailText=header.findViewById(R.id.nav_email);
+        TextView emailText = header.findViewById(R.id.nav_email);
         ImageView img = header.findViewById(R.id.img);
-        if(user!=null) {
+        if (user != null) {
             navText.setText("Hi! " + user.getDisplayName());
             Picasso.get().load(user.getPhotoUrl()).into(img);
             emailText.setText(user.getEmail());
@@ -116,15 +113,12 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
+                switch (menuItem.getItemId()) {
                     case R.id.nav_vital_signs:
-                        startActivity(new Intent(MainActivity.this,VitalSignsActivity.class));
-                        return true;
-                    case R.id.nav_medication:
-                        startActivity(new Intent(MainActivity.this,MedicationsActivity.class));
+                        startActivity(new Intent(MainActivity.this, VitalSignsActivity.class));
                         return true;
                     case R.id.nav_consult:
-                        startActivity(new Intent(MainActivity.this,ConsultActivity.class));
+                        startActivity(new Intent(MainActivity.this, ConsultActivity.class));
                         return true;
                     case R.id.nav_logout:
                         sharedPref.edit().clear().commit();
@@ -132,13 +126,13 @@ public class MainActivity extends AppCompatActivity {
                                 .signOut(MainActivity.this)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        startActivity(new Intent(MainActivity.this,MainActivity.class));
+                                        startActivity(new Intent(MainActivity.this, MainActivity.class));
                                     }
                                 });
                         return true;
 
                     case R.id.nav_abt_vitals:
-                        startActivity(new Intent(MainActivity.this,AboutVitalSigns.class));
+                        startActivity(new Intent(MainActivity.this, AboutVitalSigns.class));
                 }
 
 
@@ -148,25 +142,14 @@ public class MainActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference()
                 .child("users")
-                .child("patients");
+                .child("patients")
+                .child(FirebaseAuth.getInstance().getUid())
+                .child("vitals");
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot child : dataSnapshot.getChildren()) {
-                    for(DataSnapshot vitals : child.getChildren()) {
-                        Log.d("data", "onDataChange: " + vitals.toString());
-                        PatientSigns signs = vitals.getValue(PatientSigns.class);
-                        listSigns.add(signs);
-                        Log.i("retrieved: ", Integer.toString(listSigns.get(i).getHeartRate()));
-                        HRentries.add(new Entry(1+i, listSigns.get(i).getHeartRate()));
-                        Sysentries.add(new Entry(1+i, listSigns.get(i).getSystolic()));
-                        Diasentries.add(new Entry(1+i, listSigns.get(i).getDiastolic()));
-                        OSentries.add(new Entry(1+i, listSigns.get(i).getOxygenSaturation()));
-                        Respientries.add(new Entry(1+i, listSigns.get(i).getRespirationRate()));
-                        //Log.d("class", "onDataChange: "+signs.getDiastolic());
-                        //Log.d("entries retrieved", "onDataChange: "+HRentries.get(i).getY());
-                        i=i+1;
+
 
                         LineDataSet dataSet1 = new LineDataSet(HRentries, "Beats per minute"); // add entries to dataset
                         dataSet1.setColor(R.color.maroon);
@@ -184,6 +167,21 @@ public class MainActivity extends AppCompatActivity {
                         chart1.invalidate(); // refresh
                         chart1.notifyDataSetChanged();
 
+                for (DataSnapshot vitals : dataSnapshot.getChildren()) {
+                    Log.d("data", "onDataChange: " + vitals.toString());
+                    PatientSigns signs = vitals.getValue(PatientSigns.class);
+                    listSigns.add(signs);
+                    Log.i("retrieved: ", Integer.toString(listSigns.get(i).getHeartRate()));
+                    HRentries.add(new Entry(1 + i, listSigns.get(i).getHeartRate()));
+                    Sysentries.add(new Entry(1 + i, listSigns.get(i).getSystolic()));
+                    Diasentries.add(new Entry(1 + i, listSigns.get(i).getDiastolic()));
+                    OSentries.add(new Entry(1 + i, listSigns.get(i).getOxygenSaturation()));
+                    Respientries.add(new Entry(1 + i, listSigns.get(i).getRespirationRate()));
+                    //Log.d("class", "onDataChange: "+signs.getDiastolic());
+                    //Log.d("entries retrieved", "onDataChange: "+HRentries.get(i).getY());
+                    i = i + 1;
+
+
                         /*LineDataSet dataSet2 = new LineDataSet(OSentries, "Heart Rate"); // add entries to dataset
                         dataSet2.setColor(R.color.maroon);
                         chart2.setBackgroundColor(getResources().getColor(R.color.skin));
@@ -193,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
                         LineData lineData2 = new LineData(dataSet2);
                         chart2.setData(lineData2);
                         Legend legend2 = chart2.getLegend();
+                        legend2.setTypeface(Typeface.DEFAULT_BOLD);
+                        legend2.setTextSize(25f);
                         legend2.setTextColor(R.color.colorPrimary);
                         legend2.setTextSize(12f);
                         chart2.invalidate(); // refresh
@@ -207,6 +207,8 @@ public class MainActivity extends AppCompatActivity {
                         LineData lineData3 = new LineData(dataSet3);
                         chart3.setData(lineData3);
                         Legend legend3 = chart3.getLegend();
+                        legend3.setTypeface(Typeface.DEFAULT_BOLD);
+                        legend3.setTextSize(25f);
                         legend3.setTextColor(R.color.colorPrimary);
                         legend3.setTextSize(12f);
                         chart3.invalidate(); // refresh
@@ -221,6 +223,8 @@ public class MainActivity extends AppCompatActivity {
                         LineData lineData4 = new LineData(dataSet4);
                         chart4.setData(lineData4);
                         Legend legend4 = chart4.getLegend();
+                        legend4.setTypeface(Typeface.DEFAULT_BOLD);
+                        legend4.setTextSize(25f);
                         legend4.setTextColor(R.color.colorPrimary);
                         legend4.setTextSize(12f);
                         chart4.invalidate(); // refresh
@@ -228,7 +232,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 }
-            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -255,11 +258,11 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             // added temporary intent to test remedy functionality
-            Intent settings = new Intent(this,SettingsActivity.class);
-            startActivity(settings);
+            Intent temp = new Intent(this, tempActivity.class);
+            startActivity(temp);
             return true;
         }
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);
             return true;
         }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class TakeAppointmentForm extends AppCompatActivity {
 
@@ -57,7 +58,8 @@ public class TakeAppointmentForm extends AppCompatActivity {
         doc =  findViewById(R.id.doctor);
         fee = findViewById(R.id.fees);
 
-        final String doctor = getIntent().getStringExtra("Doctor");
+        final String doctor = getIntent().getStringExtra("DoctorName");
+        final String doctorID = getIntent().getStringExtra("DoctorID");
         String fees = getIntent().getStringExtra("Fees");
 
         doc.setText(doctor);
@@ -65,21 +67,40 @@ public class TakeAppointmentForm extends AppCompatActivity {
 
 
 
-        final String Time = String.valueOf(picker_time.getHour()) + ":" +
-                String.valueOf(picker_time.getMinute());
+        final Time appointmentTime = new Time(picker_time.getHour(), picker_time.getMinute(), picker.getDayOfMonth(),
+                picker.getMonth(), picker.getYear());
 
-       String Date = String.valueOf(picker.getDayOfMonth())
-               + String.valueOf(picker.getMonth())+
-               String.valueOf(picker.getYear());
 
-       String Problem = problem.getText().toString();
+        final String Problem = problem.getText().toString();
 
-       submit.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                // update databse of appointments
-               Toast.makeText(getApplicationContext(),String.valueOf("Appointment Scheduled for " + Name + "\nDate: "+date + "\nTime: " + time+ "\n At:"
-               +"Dr. "+doctor), Toast.LENGTH_LONG).show();
+
+               //Add Paytm Okay
+
+               // Nikhil will do it.
+               //Add to OnActivity result
+
+               PatientAppointment patientAppointment = new PatientAppointment(Name, doctor, FirebaseAuth.getInstance().getUid(),
+                       doctorID, appointmentTime.getTimeStamp(), Gender, Integer.getInteger(Age), Problem, 0);
+
+               FirebaseDatabase.getInstance().getReference().child("users")
+                       .child("doctors")
+                       .child(doctorID)
+                       .child("appointments")
+                       .child("pending")
+                       .push()
+                       .setValue(patientAppointment);
+
+               FirebaseDatabase.getInstance().getReference().child("users")
+                       .child("patients")
+                       .child(FirebaseAuth.getInstance().getUid())
+                       .child("appointments")
+                       .child("pending")
+                       .push()
+                       .setValue(patientAppointment);
            }
        });
 
