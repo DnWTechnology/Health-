@@ -3,14 +3,14 @@ package com.example.nikhil.vihaan;
 public class PatientAppointment {
 
     private String patientName, doctorName, patientID, doctorID;
-    private long appointmentTime;
+    private Time appointmentTime;
     private String gender;
     private int age, confirmed;
     private String description;
 
 
     public PatientAppointment(String patientName, String doctorName, String patientID, String doctorID,
-                              long appointmentTime, String gender, int age, String description, int confirmed) {
+                              Time appointmentTime, String gender, int age, String description) {
         this.patientName = patientName;
         this.doctorName = doctorName;
         this.patientID = patientID;
@@ -19,6 +19,7 @@ public class PatientAppointment {
         this.gender = gender;
         this.age = age;
         this.description = description;
+        this.confirmed = 0;
     }
 
     public String getPatientName() {
@@ -29,11 +30,11 @@ public class PatientAppointment {
         this.patientName = patientName;
     }
 
-    public long getAppointmentTime() {
+    public Time getAppointmentTime() {
         return appointmentTime;
     }
 
-    public void setAppointmentTime(long appointmentTime) {
+    public void setAppointmentTime(Time appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
 
