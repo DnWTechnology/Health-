@@ -53,7 +53,7 @@ public class VitalSignsResults extends AppCompatActivity {
             Log.i("MyLogs", Objects.requireNonNull(FirebaseAuth.getInstance().getUid()) );
 
             FirebaseDatabase.getInstance().getReference()
-                    .child("users")
+                    .child("userbase")
                     .child("patients")
                     .child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
                     .child("vitals")
