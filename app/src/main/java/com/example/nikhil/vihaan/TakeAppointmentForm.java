@@ -45,7 +45,9 @@ public class TakeAppointmentForm extends AppCompatActivity {
         final String Gender = sref.getString("Gender","M");
 
         name.setText(Name);
+
         age.setText("Age: "+Age);
+
         gender.setText("Gender: " +Gender);
 
         picker = findViewById(R.id.date_picker);
