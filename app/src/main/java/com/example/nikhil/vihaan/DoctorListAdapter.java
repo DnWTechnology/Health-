@@ -76,7 +76,7 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
                                 context.startActivity(intent);
                                 return true;
                             case R.id.action_appointment:
-                                Intent intent = new Intent(v.getContext(), TakeAppointmentForm.class);
+                                Intent i = new Intent(v.getContext(), TakeAppointmentForm.class);
                                 return true;
                             default:
                                 return false;
