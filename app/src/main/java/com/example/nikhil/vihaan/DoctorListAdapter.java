@@ -1,6 +1,7 @@
 package com.example.nikhil.vihaan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,9 +17,14 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.Query;
 
+import org.apache.commons.math3.random.RandomGenerator;
+
+import java.util.Random;
+
 
 public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, DoctorListAdapter.DoctorHolder>{
 
+    int n=100000;
 
     Context context;
     /**
@@ -42,7 +48,7 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
 
 
     @Override
-    protected void populateViewHolder(DoctorHolder viewHolder, DoctorDetails model, int position) {
+    protected void populateViewHolder(DoctorHolder viewHolder, final DoctorDetails model, int position) {
         viewHolder.doctorName.setText(model.getName());
         viewHolder.doctorQualification.setText(model.getQualification());
         viewHolder.chatFees.setText("Rs. "+ model.getMessageCharge());
@@ -61,10 +67,16 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_start_chat:
-                                Toast.makeText(v.getContext(), "Starting chat for", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(context, checksum.class);
+                                Random generator = new Random();
+                                n=generator.nextInt(n);
+                                intent.putExtra("orderid", "n");
+                                intent.putExtra("chat_charge", model.getMessageCharge());
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                context.startActivity(intent);
                                 return true;
                             case R.id.action_appointment:
-                                Toast.makeText(v.getContext(), "Starting chat", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(v.getContext(), TakeAppointmentForm.class);
                                 return true;
                             default:
                                 return false;
