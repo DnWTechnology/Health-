@@ -20,6 +20,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,9 +42,12 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+
+    int i=0;
 
     static boolean isDoctor = false;
     ArrayList<PatientSigns> listSigns = new ArrayList<>();
@@ -51,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final LineChart chart = findViewById(R.id.chart);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -78,8 +92,10 @@ public class MainActivity extends AppCompatActivity {
                 }
         }
 
+        final List<Entry> entries = new ArrayList<Entry>();
         mDrawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.nav_view);
+
         View header = navigationView.getHeaderView(0);
         TextView navText = header.findViewById(R.id.nav_text);
         TextView emailText=header.findViewById(R.id.nav_email);
@@ -123,8 +139,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         mDatabase = FirebaseDatabase.getInstance().getReference()
                 .child("users")
                 .child("patients");
@@ -137,7 +151,26 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("data", "onDataChange: " + vitals.toString());
                         PatientSigns signs = vitals.getValue(PatientSigns.class);
                         listSigns.add(signs);
+                        Log.i("retrieved: ", Integer.toString(listSigns.get(i).getHeartRate()));
+                        entries.add(new Entry(1+i, listSigns.get(i).getHeartRate()));
                         Log.d("class", "onDataChange: "+signs.getDiastolic());
+                        Log.d("entries retrieved", "onDataChange: "+entries.get(i).getY());
+                        i=i+1;
+
+                        LineDataSet dataSet = new LineDataSet(entries, "Heart Rate"); // add entries to dataset
+                        dataSet.setColor(R.color.maroon);
+                        chart.setBackgroundColor(getResources().getColor(R.color.lime));
+                        Description description = new Description();
+                        description.setText("Heart Rate");
+                        chart.setDescription(description);
+                        LineData lineData = new LineData(dataSet);
+                        chart.setData(lineData);
+                        Legend legend = chart.getLegend();
+                        legend.setTextColor(R.color.colorPrimary);
+                        legend.setTextSize(12f);
+                        chart.invalidate(); // refresh
+                        chart.notifyDataSetChanged();
+
                     }
                 }
             }
@@ -147,8 +180,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
 
     }
 

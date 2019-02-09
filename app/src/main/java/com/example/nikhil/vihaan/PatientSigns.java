@@ -1,5 +1,7 @@
 package com.example.nikhil.vihaan;
 
+import java.util.Date;
+
 public class PatientSigns {
 
     private int systolic;
@@ -7,6 +9,7 @@ public class PatientSigns {
     private int heartRate;
     private int oxygenSaturation;
     private int respirationRate;
+    private long timestamp;
 
     public PatientSigns() {}
     public PatientSigns(int systolic, int diastolic, int heartRate, int oxygenSaturation, int respirationRate) {
@@ -15,6 +18,7 @@ public class PatientSigns {
         this.heartRate = heartRate;
         this.oxygenSaturation = oxygenSaturation;
         this.respirationRate = respirationRate;
+        this.timestamp = new Date().getTime();
     }
 
     public int getSystolic() {
@@ -55,5 +59,13 @@ public class PatientSigns {
 
     public void setRespirationRate(int respirationRate) {
         this.respirationRate = respirationRate;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }
