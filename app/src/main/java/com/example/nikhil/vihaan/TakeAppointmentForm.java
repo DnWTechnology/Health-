@@ -84,13 +84,12 @@ public class TakeAppointmentForm extends AppCompatActivity {
                //Add to OnActivity result
 
                PatientAppointment patientAppointment = new PatientAppointment(Name, doctor, FirebaseAuth.getInstance().getUid(),
-                       doctorID, appointmentTime, Gender, Integer.getInteger(Age), Problem);
+                       doctorID, appointmentTime, Gender, sref.getInt("Age",20), Problem);
 
                FirebaseDatabase.getInstance().getReference().child("users")
                        .child("doctors")
                        .child(doctorID)
                        .child("appointments")
-                       .child("pending")
                        .push()
                        .setValue(patientAppointment);
 
@@ -98,7 +97,6 @@ public class TakeAppointmentForm extends AppCompatActivity {
                        .child("patients")
                        .child(FirebaseAuth.getInstance().getUid())
                        .child("appointments")
-                       .child("pending")
                        .push()
                        .setValue(patientAppointment);
            }
