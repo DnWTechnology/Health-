@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
                         chart3.invalidate(); // refresh
                         chart3.notifyDataSetChanged();
 
-                        LineDataSet dataSet4 = new LineDataSet(OSentries, "millimeters of mercury (mm Hg)"); // add entries to dataset
+                        LineDataSet dataSet4 = new LineDataSet(OSentries, "Percentage"); // add entries to dataset
                         dataSet4.setColor(R.color.maroon);
                         chart4.setBackgroundColor(getResources().getColor(R.color.pink));
                         Description description4 = new Description();
