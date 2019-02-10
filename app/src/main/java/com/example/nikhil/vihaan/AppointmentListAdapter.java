@@ -53,7 +53,7 @@ public class AppointmentListAdapter extends FirebaseRecyclerAdapter<PatientAppoi
         }
         viewHolder.appDate.setText(model.getDate());
         viewHolder.appTime.setText(model.getTime());
-        viewHolder.appDescription.setText(model.getDescription());
+        viewHolder.appDescription.setText("Description: " + model.getDescription());
 
     }
 

@@ -29,7 +29,6 @@ import com.github.mikephil.charting.data.LineDataSet;
 
 
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("DASHBOARD");
+        getSupportActionBar().setTitle("Dashboard");
 
         // using shared preferrence to distinguish between doctor and user
         sharedPref = getSharedPreferences("doctor", Context.MODE_PRIVATE);
@@ -263,13 +262,6 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            // added temporary intent to test remedy functionality
-            Intent temp = new Intent(this, SettingsActivity.class);
-            startActivity(temp);
-            return true;
-        }
         if (id == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);
             return true;
