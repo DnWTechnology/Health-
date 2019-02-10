@@ -89,7 +89,7 @@ public class InfoActivity extends AppCompatActivity {
 
         data.add(new Info("Treatments:\n",
                 "The treatment of tachypnea depends primarily on determining and correcting the underlying cause.\n" +
-                        "Consult your doctor for a better understanding"));
+                        "Consult your doctor_logo for a better understanding"));
         return data;
 
 
@@ -135,7 +135,7 @@ public class InfoActivity extends AppCompatActivity {
                 "If urgent treatment is needed, supplemental oxygen is given to the individual. " +
                         "Treatments can range from surgery to correct dangerous intracranial pressure, " +
                         "to stays in rehabilitation facilities for addiction problems.\n" +
-                        "Contact your doctor for a better understanding"));
+                        "Contact your doctor_logo for a better understanding"));
 
         return data;
 

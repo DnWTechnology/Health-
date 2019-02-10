@@ -35,7 +35,7 @@ public class DoctorActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        sharedPref= getSharedPreferences("doctor",Context.MODE_PRIVATE);
+        sharedPref= getSharedPreferences("doctor_logo",Context.MODE_PRIVATE);
         doctorDetails = sharedPref.getBoolean("isDoctor",false);
 
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.nav_view_main);

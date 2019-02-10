@@ -163,10 +163,10 @@ public class RemedyActivity extends AppCompatActivity {
         data.add(new Remedy("2. Avoid alcoholic beverages\n",
                 "Alcohol can lower blood pressure further, so people with low blood pressure should avoid drinking excessive amounts of alcohol.", 0));
 
-        data.add(new Remedy("3. Discuss medications with a doctor\n",
+        data.add(new Remedy("3. Discuss medications with a doctor_logo\n",
                 "Low blood pressure can be a side effect of a variety of medications.\n" +
                         "\n" +
-                        "If symptoms of low blood pressure begin after starting a medication, a person should discuss the symptoms with their doctor.", R.drawable.doctor));
+                        "If symptoms of low blood pressure begin after starting a medication, a person should discuss the symptoms with their doctor_logo.", R.drawable.doctor_logo));
 
         data.add(new Remedy("4. Drink water\n",
                 "Drinking more water can help increase blood volume, which can aleviate one of the potential causes of low blood pressure. It can also help avoid dehydration.", R.drawable.water));
@@ -230,7 +230,7 @@ public class RemedyActivity extends AppCompatActivity {
                         "* placing ice or a cold, damp towel on the face for a few seconds\n" +
                         "* splashing cold water on the face\n" +
                         "* chanting \"Om\"\n" +
-                        "Before trying this method consult a doctor, who can advise on the best technique.", 0));
+                        "Before trying this method consult a doctor_logo, who can advise on the best technique.", 0));
 
         data.add(new Remedy("4. Keep electrolytes balanced\n",
                         "Avocados and bananas are high in potassium.\n" +
@@ -250,7 +250,7 @@ public class RemedyActivity extends AppCompatActivity {
                         "* spinach\n" +
                         "* Dairy products and dark, leafy greens are rich in calcium. Magnesium is also found in these vegetables, as well as in nuts and fish.\n" +
                         "\n" +
-                        "It may be tempting to attain these nutrients by taking supplements. A person should consult a doctor before trying any supplements, particularly if they are also taking prescription medication.\n" +
+                        "It may be tempting to attain these nutrients by taking supplements. A person should consult a doctor_logo before trying any supplements, particularly if they are also taking prescription medication.\n" +
                         "\n", R.drawable.electrolyte));
 
         data.add(new Remedy("5. Keep hydrated\n",

@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
@@ -37,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        sharedPref = getSharedPreferences("doctor",Context.MODE_PRIVATE);
+        sharedPref = getSharedPreferences("doctor_logo",Context.MODE_PRIVATE);
 
 
         userLogin=findViewById(R.id.user_login);
@@ -50,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                         AuthUI.getInstance()
                                 .createSignInIntentBuilder()
                                 .setAvailableProviders(providers)
+                                .setLogo(R.drawable.user)
                                 .build(),
                         USER_SIGN_IN);
             }
@@ -63,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                         AuthUI.getInstance()
                                 .createSignInIntentBuilder()
                                 .setAvailableProviders(providers)
+                                .setLogo(R.drawable.doctor_logo)
                                 .build(),
                         DOC_SIGN_IN);
 
