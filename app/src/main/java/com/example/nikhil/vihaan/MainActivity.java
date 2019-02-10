@@ -142,6 +142,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_abt_vitals:
                         startActivity(new Intent(MainActivity.this, AboutVitalSigns.class));
                         return true;
+
+                    case R.id.nav_settings:
+                        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+
                 }
 
                 return false;
@@ -265,6 +269,9 @@ public class MainActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);
             return true;
+        }
+        else if(id==R.id.action_settings){
+            startActivity(new Intent(MainActivity.this,SettingsActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
