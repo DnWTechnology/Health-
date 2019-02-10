@@ -45,6 +45,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    static String bp,hr,os,rr;
+
     int i = 0;
 
     static boolean isDoctor = false;
@@ -95,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
             final List<Entry> Diasentries = new ArrayList<Entry>();
             final List<Entry> OSentries = new ArrayList<Entry>();
             final List<Entry> Respientries = new ArrayList<Entry>();
+
+
+
+
             mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
             navigationView = findViewById(R.id.nav_view);
 
@@ -165,6 +171,13 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("data", "onDataChange: " + vitals.toString());
                         PatientSigns signs = vitals.getValue(PatientSigns.class);
                         listSigns.add(signs);
+
+                        bp = String.valueOf(listSigns.get(0).getSystolic())+String.valueOf(listSigns.get(0).getDiastolic());
+                        hr = String.valueOf(listSigns.get(0).getHeartRate());
+                        os = String.valueOf(listSigns.get(0).getOxygenSaturation());
+                        rr=String.valueOf(listSigns.get(0).getRespirationRate());
+
+
                         Log.i("retrieved: ", Integer.toString(listSigns.get(i).getHeartRate()));
                         HRentries.add(new Entry(1 + i, listSigns.get(i).getHeartRate()));
                         Sysentries.add(new Entry(1 + i, listSigns.get(i).getSystolic()));

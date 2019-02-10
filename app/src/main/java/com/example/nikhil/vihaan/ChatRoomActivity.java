@@ -224,6 +224,8 @@ public class ChatRoomActivity extends AppCompatActivity {
                 .child(uid)
                 .child("chat_list");
 
+
+
         chatRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
