@@ -41,6 +41,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="HEART RATE CHART"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="10dp"/>
+
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chart1"
                         android:layout_width="380dp"
@@ -48,6 +57,14 @@
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
                         android:layout_marginBottom="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="18dp"
+                        android:text="BLOOD PRESSURE CHART"
+                        android:layout_marginBottom="15dp"/>
 
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chart2"
@@ -57,6 +74,14 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="15dp" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="18dp"
+                        android:text="RESPIRATION RATE CHART"
+                        android:layout_marginBottom="15dp"/>
+
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chart3"
                         android:layout_width="380dp"
@@ -64,6 +89,14 @@
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
                         android:layout_marginBottom="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="18dp"
+                        android:text="OXYGEN SATURATION CHART"
+                        android:layout_marginBottom="15dp"/>
 
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chart4"
