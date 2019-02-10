@@ -50,7 +50,9 @@ public class DoctorActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 } else if (id == R.id.action_chat) {
-
+                    fragment=new DoctorChatsFragment();
+                    loadFragment(fragment);
+                    return true;
 
                 }
 

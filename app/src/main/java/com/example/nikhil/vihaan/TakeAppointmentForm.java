@@ -70,15 +70,17 @@ public class TakeAppointmentForm extends AppCompatActivity {
 
 
 
-        final Time appointmentTime = new Time(picker_time.getHour(), picker_time.getMinute(), picker.getDayOfMonth(),
-                picker.getMonth(), picker.getYear());
 
 
-        final String Problem = problem.getText().toString();
+
+
 
         submit.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               final String Problem = problem.getText().toString();
+               final Time appointmentTime = new Time(picker_time.getHour(), picker_time.getMinute(), picker.getDayOfMonth(),
+                       picker.getMonth(), picker.getYear());
                // update databse of appointments
 
                //Add Paytm Okay
