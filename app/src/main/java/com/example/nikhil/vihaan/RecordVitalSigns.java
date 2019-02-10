@@ -288,26 +288,28 @@ public class RecordVitalSigns extends AppCompatActivity {
                 }
 
                 //if the values of hr and o2 are not reasonable then show a toast that measurement failed and restart the progress bar and the whole recording process for another 30 seconds
+                // uncommented this
                 if ((bufferAvgB < 45 || bufferAvgB > 200) || (bufferAvgBr < 10 || bufferAvgBr > 24)) {
-//                    inc = 0;
-//                    ProgP = inc;
-//                    ProgHeart.setProgress(ProgP);
-//                    mainToast = Toast.makeText(getApplicationContext(), "Measurement Failed. Kindly try again in a darker environment", Toast.LENGTH_SHORT);
-//                    mainToast.show();
-//                    startTime = System.currentTimeMillis();
-//                    counter = 0;
-//                    processing.set(false);
-//                    return;
+                    inc = 0;
+                    ProgP = inc;
+                    ProgHeart.setProgress(ProgP);
+                    mainToast = Toast.makeText(getApplicationContext(), "Measurement Failed. Kindly try again in a darker environment", Toast.LENGTH_SHORT);
+                    mainToast.show();
+                    startTime = System.currentTimeMillis();
+                    counter = 0;
+                    processing.set(false);
+                    return;
 
-                    Intent i = new Intent(RecordVitalSigns.this, VitalSignsResults.class);
-                    i.putExtra("O2R", 99);
-                    i.putExtra("breath", 15);
-                    i.putExtra("bpm", 76);
-                    i.putExtra("SP", 122);
-                    i.putExtra("DP", 70);
-                    i.putExtra("Usr", user);
-                    startActivity(i);
-                    finish();
+                    // commented this
+//                    Intent i = new Intent(RecordVitalSigns.this, VitalSignsResults.class);
+//                    i.putExtra("O2R", 99);
+//                    i.putExtra("breath", 15);
+//                    i.putExtra("bpm", 76);
+//                    i.putExtra("SP", 122);
+//                    i.putExtra("DP", 70);
+//                    i.putExtra("Usr", user);
+//                    startActivity(i);
+//                    finish();
                 }
 
                 Beats = (int) bufferAvgB;

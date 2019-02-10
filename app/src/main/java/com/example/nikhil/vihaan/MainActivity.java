@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     DrawerLayout mDrawerLayout;
     private DatabaseReference mDatabase;
-    // shared preference for doctor
+    // shared preference for doctor_logo
     static SharedPreferences sharedPref;
 
     @Override
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Dashboard");
 
-        // using shared preferrence to distinguish between doctor and user
-        sharedPref = getSharedPreferences("doctor", Context.MODE_PRIVATE);
+        // using shared preferrence to distinguish between doctor_logo and user
+        sharedPref = getSharedPreferences("doctor_logo", Context.MODE_PRIVATE);
         isDoctor = sharedPref.getBoolean("isDoctor", true);
 
         if (getSupportActionBar() != null) {
