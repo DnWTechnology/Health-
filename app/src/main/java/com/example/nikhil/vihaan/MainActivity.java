@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                         PatientSigns signs = vitals.getValue(PatientSigns.class);
                         listSigns.add(signs);
 
-                        bp = String.valueOf(listSigns.get(0).getSystolic())+String.valueOf(listSigns.get(0).getDiastolic());
+                        bp = String.valueOf(listSigns.get(0).getSystolic())+"/ "+String.valueOf(listSigns.get(0).getDiastolic());
                         hr = String.valueOf(listSigns.get(0).getHeartRate());
                         os = String.valueOf(listSigns.get(0).getOxygenSaturation());
                         rr=String.valueOf(listSigns.get(0).getRespirationRate());
