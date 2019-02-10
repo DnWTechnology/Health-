@@ -70,8 +70,8 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
 //                                Intent intent = new Intent(context, checksum.class);
 //                                Random generator = new Random();
 //                                n=generator.nextInt(n);
-//                                intent.putExtra("orderid", "n");
-//                                intent.putExtra("chat_charge", model.getMessageCharge());
+//                                intent.putExtra("orderid", "465");
+//                                intent.putExtra("custid", "466");
 //                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                                context.startActivity(intent);
                                 final Intent intent = new Intent(context, ChatRoomActivity.class);
