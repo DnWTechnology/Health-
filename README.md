@@ -21,3 +21,6 @@ A user can:
 A doctor can:
 1. Manage his apointments.
 2. Chat with his patients
+
+
+Learn more by downloading this peresentation: https://github.com/KunalFarmah98/Health-/blob/master/app/src/main/res/raw/Vihaan_ppt.pptx
