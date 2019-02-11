@@ -67,6 +67,7 @@ public class DoctorListAdapter extends FirebaseRecyclerAdapter<DoctorDetails, Do
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_start_chat:
+                                //for paytm payment
 //                                Intent intent = new Intent(context, checksum.class);
 //                                Random generator = new Random();
 //                                n=generator.nextInt(n);
