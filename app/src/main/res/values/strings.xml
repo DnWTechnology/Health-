@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vihaan</string>
+    <string name="app_name">Health++</string>
     <string name="action_settings">Settings</string>
     <string name="finger_instructions">- Lightly place your index finger on the rear camera.\n- Make sure the camera is fully covered.\n- Measure in a shaded environment.\n- Don\'t move your finger until the measurement is complete.\n- Finally place your finger then press start.</string>
     <string name="bp">Blood pressure (BP) is the pressure of circulating blood on the walls of blood vessels.

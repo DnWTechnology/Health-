@@ -1,52 +1,45 @@
 {
   "project_info": {
-    "project_number": "754250495128",
-    "firebase_url": "https://vihaan-95867.firebaseio.com",
-    "project_id": "vihaan-95867",
-    "storage_bucket": "vihaan-95867.appspot.com"
+    "project_number": "177505750707",
+    "firebase_url": "https://health-f410d.firebaseio.com",
+    "project_id": "health-f410d",
+    "storage_bucket": "health-f410d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:754250495128:android:efb29752e75834b7",
+        "mobilesdk_app_id": "1:177505750707:android:7d7e658b6925b4a051eac6",
         "android_client_info": {
-          "package_name": "com.example.nikhil.vihaan"
+          "package_name": "com.apps.kunalfarmah.vihaan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "754250495128-4mni76erq14eh1o7c2700i03e33sbed3.apps.googleusercontent.com",
+          "client_id": "177505750707-g4rbg6ef3ms5ttpf10o8qrhl4ddavc61.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.nikhil.vihaan",
-            "certificate_hash": "3b28821716fcc2c2332b711e07ac6f373ffaccd5"
+            "package_name": "com.apps.kunalfarmah.vihaan",
+            "certificate_hash": "16dbd98ff40e0e810ca1a458d25b860c667a5132"
           }
         },
         {
-          "client_id": "754250495128-g7b360h4k3jpqcjn0jj1c2r8f5preo0q.apps.googleusercontent.com",
+          "client_id": "177505750707-912hksmbiuu83fo0nfipd0oejdd4n86r.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBSqO3wmRYLModSlpb7wfxKzv4pTZEOA7A"
+          "current_key": "AIzaSyB6KrpAuRoxJNoPyiIw07j42cJdM-ryG3A"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "754250495128-g7b360h4k3jpqcjn0jj1c2r8f5preo0q.apps.googleusercontent.com",
+              "client_id": "177505750707-912hksmbiuu83fo0nfipd0oejdd4n86r.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
