@@ -39,27 +39,36 @@ public class DoctorForm extends AppCompatActivity {
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DoctorDetails details = new DoctorDetails(user.getDisplayName(), FirebaseAuth.getInstance().getUid(),
-                        qualification.getText().toString(),
-                        address.getText().toString(), specialities.getText().toString(),
-                        Integer.parseInt(messCharge.getText().toString()), Integer.parseInt(appointCharge.getText().toString()),
-                        90, 92);
+                if(messCharge.getText().toString().equals("") || appointCharge.getText().toString().equals("")||
+                        qualification.getText().toString().equals("") || address.getText().toString().equals("")
+                || specialities.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(), "Please Provide All Details to continue", Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+
+                    DoctorDetails details = new DoctorDetails(user.getDisplayName(), FirebaseAuth.getInstance().getUid(),
+                            qualification.getText().toString(),
+                            address.getText().toString(), specialities.getText().toString(),
+                            Integer.parseInt(messCharge.getText().toString()), Integer.parseInt(appointCharge.getText().toString()),
+                            90, 92);
 
 
-                FirebaseDatabase.getInstance().getReference()
-                        .child("userbase")
-                        .child("doctors")
-                        .child("details")
-                        .child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
-                        .setValue(details);
-                Toast.makeText(DoctorForm.this, "Details Updated Successfully", Toast.LENGTH_SHORT).show();
+                    FirebaseDatabase.getInstance().getReference()
+                            .child("userbase")
+                            .child("doctors")
+                            .child("details")
+                            .child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                            .setValue(details);
+                    Toast.makeText(DoctorForm.this, "Details Updated Successfully", Toast.LENGTH_SHORT).show();
 
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putBoolean("doctorDetails",true);
-                editor.apply();
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putBoolean("doctorDetails", true);
+                    editor.apply();
 
-                finish();
-                startActivity(new Intent(DoctorForm.this, DoctorActivity.class));
+                    finish();
+                    startActivity(new Intent(DoctorForm.this, DoctorActivity.class));
+                }
 
             }
         });

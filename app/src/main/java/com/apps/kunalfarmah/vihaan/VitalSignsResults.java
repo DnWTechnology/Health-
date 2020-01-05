@@ -1,6 +1,7 @@
 package com.apps.kunalfarmah.vihaan;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -48,6 +49,16 @@ public class VitalSignsResults extends AppCompatActivity {
             VBP1 = bundle.getInt("SP");
             VBP2 = bundle.getInt("DP");
             VO2 = bundle.getInt("O2R");
+
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyVitals", 0); // 0 - for private mode
+            SharedPreferences.Editor editor = pref.edit();
+            editor.clear();
+            editor.apply();
+            editor.putString("BP",String.valueOf(VBP1)+"/"+String.valueOf(VBP2));
+            editor.putString("HR",String.valueOf(VHR));
+            editor.putString("OS",String.valueOf(VO2));
+            editor.putString("RR",String.valueOf(VRR));
+            editor.apply();
 
             Log.i("MyLogs", Objects.requireNonNull(FirebaseAuth.getInstance().getUid()) );
 

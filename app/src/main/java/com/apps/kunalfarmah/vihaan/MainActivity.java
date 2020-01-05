@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -56,14 +57,22 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout mDrawerLayout;
     private DatabaseReference mDatabase;
     // shared preference for doctor_logo
-    static SharedPreferences sharedPref;
+    static SharedPreferences sharedPref,sref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // using shared preferrence to distinguish between doctor_logo and user
+        sharedPref = getSharedPreferences("doctor_logo", Context.MODE_PRIVATE);
+        sref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        isDoctor = sharedPref.getBoolean("isDoctor", true);
+
+        if(isDoctor){
+            startActivity(new Intent(this,DoctorActivity.class));
+        }
+
+
         setContentView(R.layout.activity_main);
-
-
         final LineChart chart1 = findViewById(R.id.chart1);
         final LineChart chart2 = findViewById(R.id.chart2);
         final LineChart chart3 = findViewById(R.id.chart3);
@@ -130,7 +139,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, ConsultActivity.class));
                         return true;
                     case R.id.nav_logout:
-                        sharedPref.edit().clear().commit();
+                        sharedPref.edit().clear().apply();
+                        sref.edit().clear().apply();
                         AuthUI.getInstance()
                                 .signOut(MainActivity.this)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {

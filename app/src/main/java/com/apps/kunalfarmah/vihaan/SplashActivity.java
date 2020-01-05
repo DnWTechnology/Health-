@@ -1,8 +1,11 @@
 package com.apps.kunalfarmah.vihaan;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +42,11 @@ public class SplashActivity extends AppCompatActivity {
         final Handler handler = new Handler();
         final Runnable r = new Runnable() {
             public void run() {
-                startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                SharedPreferences sref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                if(sref.getBoolean("isDoctor",false))
+                    startActivity(new Intent(SplashActivity.this,DoctorActivity.class));
+                else
+                    startActivity(new Intent(SplashActivity.this,MainActivity.class));
                 finish();
             }
         };

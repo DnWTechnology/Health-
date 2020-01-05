@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class PatientInfoActivity extends AppCompatActivity {
 
@@ -42,18 +43,24 @@ public class PatientInfoActivity extends AppCompatActivity {
                 W=wt.getText().toString();
                 G=gen.getText().toString();
 
-                SharedPreferences.Editor e = sref.edit();
-                e.putInt("Age",Integer.parseInt(A));
-                e.commit();
-                e.putInt("Height",Integer.parseInt(H));
-                e.commit();
-                e.putInt("Weight",Integer.parseInt(W));
-                e.commit();
-                e.putString("Gender",G);
-                e.commit();
+                if(A.equals("") || H.equals("") || W.equals("") || G.equals("")){
+                    Toast.makeText(getApplicationContext(),"Please Provide All Details to continue",Toast.LENGTH_SHORT).show();
+                }
+                else {
 
-                finishAffinity();
-                startActivity(new Intent(PatientInfoActivity.this,MainActivity.class));
+                    SharedPreferences.Editor e = sref.edit();
+                    e.putInt("Age", Integer.parseInt(A));
+                    e.commit();
+                    e.putInt("Height", Integer.parseInt(H));
+                    e.commit();
+                    e.putInt("Weight", Integer.parseInt(W));
+                    e.commit();
+                    e.putString("Gender", G);
+                    e.commit();
+
+                    finishAffinity();
+                    startActivity(new Intent(PatientInfoActivity.this, MainActivity.class));
+                }
             }
         });
 

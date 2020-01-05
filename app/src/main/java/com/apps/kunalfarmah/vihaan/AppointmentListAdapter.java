@@ -4,8 +4,10 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -38,14 +40,21 @@ public class AppointmentListAdapter extends FirebaseRecyclerAdapter<PatientAppoi
 
     @Override
     protected void populateViewHolder(AppointmentHolder viewHolder, final PatientAppointment model, int position) {
-        if(context.getSharedPreferences("Info",MODE_PRIVATE).getBoolean("isDoctor", false)) {
+        if(context.getSharedPreferences("doctor_logo", Context.MODE_PRIVATE).getBoolean("isDoctor", false)) {
             viewHolder.appName.setText("Patient Name: "+ model.getPatientName());
+            viewHolder.vitals.setVisibility(View.VISIBLE);
         } else {
             viewHolder.appName.setText("Doctor Name: "+ model.getDoctorName());
+            viewHolder.vitals.setVisibility(View.GONE);
         }
         viewHolder.appDate.setText(model.getDate());
         viewHolder.appTime.setText(model.getTime());
         viewHolder.appDescription.setText("Description: " + model.getDescription());
+        Vitals v = model.getVitals();
+        viewHolder.bp.setText(v.getBp());
+        viewHolder.hr.setText(v.getHr());
+        viewHolder.os.setText(v.getOs());
+        viewHolder.rr.setText(v.getRr());
 
     }
 
@@ -53,6 +62,8 @@ public class AppointmentListAdapter extends FirebaseRecyclerAdapter<PatientAppoi
 
     public class AppointmentHolder extends RecyclerView.ViewHolder {
         TextView appName, appDescription, appTime, appDate;
+        TextView bp,hr,os,rr;
+        LinearLayout vitals;
 
         public AppointmentHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +71,11 @@ public class AppointmentListAdapter extends FirebaseRecyclerAdapter<PatientAppoi
             this.appDescription = itemView.findViewById(R.id.appointment_desc);
             this.appTime = itemView.findViewById(R.id.appointment_time);
             this.appDate = itemView.findViewById(R.id.appointment_date);
+            this.vitals = itemView.findViewById(R.id.vitals);
+            this.bp = itemView.findViewById(R.id.bp);
+            this.hr = itemView.findViewById(R.id.hr);
+            this.os = itemView.findViewById(R.id.os);
+            this.rr = itemView.findViewById(R.id.rr);
         }
 
     }

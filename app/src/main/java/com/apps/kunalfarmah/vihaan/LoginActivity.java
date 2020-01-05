@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -14,7 +15,11 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,14 +37,17 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences sharedPref,sref;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        getSupportActionBar().setIcon(R.drawable.report_icon);
+
+        sref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
         sharedPref = getSharedPreferences("doctor_logo",Context.MODE_PRIVATE);
-
-
         userLogin=findViewById(R.id.user_login);
         docLogin=findViewById(R.id.doc_login);
 
@@ -90,21 +98,18 @@ public class LoginActivity extends AppCompatActivity {
                         .child(mUser.getUserID())
                         .setValue(mUser);
 
+
+                sref.edit().putBoolean("isDoctor",false).apply();
+
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("isDoctor",false);
-                editor.commit();
+                editor.apply();
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 Toast.makeText(this, "Welcome "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
 
-                sref=getSharedPreferences("Info",MODE_PRIVATE);
-               // if(sref.getString("Age",null)==null) {
-                    finishAffinity();
-                    startActivity(new Intent(LoginActivity.this, PatientInfoActivity.class));
-               // }
-               // else
-                 //   startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                // ...
+                finishAffinity();
+                startActivity(new Intent(LoginActivity.this, PatientInfoActivity.class));
             } else {
                 finishAffinity();
                 // Sign in failed. If response is null the user canceled the
@@ -128,20 +133,44 @@ public class LoginActivity extends AppCompatActivity {
                         .child(mUser.getUserID())
                         .setValue(mUser);
 
+                sref.edit().putBoolean("isDoctor",true).apply();
+
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("isDoctor",true);
-                editor.commit();
+                editor.apply();
                 // Successfully signed in
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 Toast.makeText(this, "Welcome Dr."+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+
+                DatabaseReference doc = FirebaseDatabase.getInstance().getReference()
+                        .child("userbase")
+                        .child("doctors")
+                        .child("details");
+
+
+                doc.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if (!snapshot.hasChild(user.getUid())) {
+                            finishAffinity();
+                            startActivity(new Intent(getApplicationContext(), DoctorForm.class));
+                        }
+                        else
+                            startActivity(new Intent(getApplicationContext(),DoctorActivity.class));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
                 //MainActivity.isDoctor=true;
                 //sref = PreferenceManager.getDefaultSharedPreferences(this);
                 //if(sref==null){
-                    finishAffinity();
-                    startActivity(new Intent(this, DoctorForm.class));
+                    //finishAffinity();
+                    //startActivity(new Intent(this, DoctorForm.class));
                //}
-                //else
-                   // startActivity(new Intent(this,DoctorActivity.class));
+
 
 
                 // ...

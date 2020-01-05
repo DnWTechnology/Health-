@@ -7,12 +7,13 @@ public class PatientAppointment {
     private String gender;
     private int age, confirmed;
     private String description;
+    private Vitals vitals;
 
     public PatientAppointment(){}
 
 
     public PatientAppointment(String patientName, String doctorName, String patientID, String doctorID,
-                              Time appointmentTime, String gender, int age, String description) {
+                              Time appointmentTime, String gender, int age, String description, Vitals vitals) {
         this.patientName = patientName;
         this.doctorName = doctorName;
         this.patientID = patientID;
@@ -22,6 +23,7 @@ public class PatientAppointment {
         this.age = age;
         this.description = description;
         this.confirmed = 0;
+        this.vitals = vitals;
     }
 
     public String getPatientName() {
@@ -94,5 +96,13 @@ public class PatientAppointment {
 
     public String getDate(){
         return appointmentTime.getDay()+"."+appointmentTime.getMonth()+"."+appointmentTime.getYear();
+    }
+
+    public Vitals getVitals() {
+        return vitals;
+    }
+
+    public void setVitals(Vitals vitals) {
+        this.vitals = vitals;
     }
 }

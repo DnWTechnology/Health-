@@ -7,6 +7,7 @@
     tools:context=".MyAppointmentsActivity">
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +24,7 @@
 
     <ListView
         android:id="@+id/app_list"
-        android:layout_below="@id/head"
+        android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 

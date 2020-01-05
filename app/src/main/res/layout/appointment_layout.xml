@@ -20,13 +20,84 @@
         android:text="Patient Name: Nikhil Sachdeva"
         android:textSize="20sp" />
 
+    <LinearLayout
+        android:id="@+id/vitals"
+        android:layout_alignStart="@id/appointment_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:weightSum="8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appointment_name">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="BP: "/>
+        <TextView
+            android:id="@+id/bp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="BP"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:text="H.Rate: "/>
+        <TextView
+            android:id="@+id/hr"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:text="HR"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:text="Oxy Sat.:"/>
+        <TextView
+            android:id="@+id/os"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="os"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Resp. Rate: "/>
+        <TextView
+            android:id="@+id/rr"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="RR"/>
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/appointment_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/appointment_name"
-        android:layout_below="@id/appointment_name"
+        android:layout_below="@id/vitals"
         android:layout_marginTop="4dp"
         android:textSize="18sp"
         android:text="Description: Dimagi kharabi"

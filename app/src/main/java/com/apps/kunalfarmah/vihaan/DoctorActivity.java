@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -19,7 +20,7 @@ import com.google.android.gms.tasks.Task;
 
 public class DoctorActivity extends AppCompatActivity {
 
-    SharedPreferences sharedPref;
+    SharedPreferences sharedPref,sref;
     Boolean doctorDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,9 @@ public class DoctorActivity extends AppCompatActivity {
 
         sharedPref= getSharedPreferences("doctor_logo",Context.MODE_PRIVATE);
         doctorDetails = sharedPref.getBoolean("isDoctor",false);
+        sref  = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        loadFragment(new DoctorAppointmentFragment());
 
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.nav_view_main);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -81,7 +85,8 @@ public class DoctorActivity extends AppCompatActivity {
         }
         else if( id==R.id.action_logout){
             MainActivity.isDoctor=false;
-            MainActivity.sharedPref.edit().clear().commit();
+            sharedPref.edit().clear().apply();
+            sref.edit().clear().apply();
             AuthUI.getInstance()
                     .signOut(DoctorActivity.this)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
