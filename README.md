@@ -15,7 +15,7 @@ and calculates the required results using Image Processing, Bessel function and 
 <p align = "center">
   <img hspace= "20" src="https://github.com/KunalFarmah98/Health-/blob/master/app/src/main/res/raw/screenshot_20190326_012659.png" width = "190" height = "320">
   <img hspace= "20" src="https://github.com/KunalFarmah98/Health-/blob/master/app/src/main/res/raw/screenshot_20190326_012705.png" width = "190" height = "320">
-  <img hspace= "20" src="https://github.com/KunalFarmah98/Health-/blob/master/app/src/main/res/raw/screenshot%20_1165.png" width = "190" height = "320">
+  <img hspace= "20" src="https://github.com/KunalFarmah98/Health-/blob/master/app/src/main/res/raw/screenshot_1165.png" width = "190" height = "320">
   
   </p>
 
@@ -41,8 +41,8 @@ and calculates the required results using Image Processing, Bessel function and 
 2. Chat with his patients
 
 <p align = "center">
-  <img hspace= "20" src="https://github.com/KunalFarmah98/Health-/blob/master/app/src/main/res/raw/screenshot%20_1163.png" width = "190" height = "320">
-  <img hspace= "20" src="https://github.com/KunalFarmah98/Health-/blob/master/app/src/main/res/raw/screenshot%20_1164.png" width = "190" height = "320">
+  <img hspace= "20" src="https://github.com/KunalFarmah98/Health-/blob/master/app/src/main/res/raw/screenshot_1163.png" width = "190" height = "320">
+  <img hspace= "20" src="https://github.com/KunalFarmah98/Health-/blob/master/app/src/main/res/raw/screenshot_1164.png" width = "190" height = "320">
   </p>
 
 
