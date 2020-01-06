@@ -3,20 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/head"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Chats"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:textSize="30sp"
-        android:textColor="@color/colorPrimary"
-        style="@style/Base.TextAppearance.AppCompat.Headline"
-        android:textStyle="bold"
-        />
-
     <android.support.v7.widget.RecyclerView
         android:padding="10dp"
         android:id="@+id/list_of_users"

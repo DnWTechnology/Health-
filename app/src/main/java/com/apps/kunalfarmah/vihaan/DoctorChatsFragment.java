@@ -27,7 +27,7 @@ public class DoctorChatsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_my_chats,container,false);
+        View view = inflater.inflate(R.layout.fragment_doc_chats,container,false);
         RecyclerView listOfUsers = view.findViewById(R.id.list_of_users);
 
         Query query;

@@ -118,9 +118,6 @@ public class VitalSignsResults extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(VitalSignsResults.this, VitalSignsActivity.class);
-        i.putExtra("Usr", user);
-        startActivity(i);
         finish();
     }
 
