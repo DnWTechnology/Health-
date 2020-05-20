@@ -1,7 +1,7 @@
 # HEALTH++ - A  PPG based vital signs testing Android App:
 
 #### Nowadays healthcare has become an important factor for a developing country to keep up with the pther countries.
-This app brings the feature fo testing Vital Signs namely, Blood Pressure, Heart Rate, Oxygen Saturation as well as Respiration Rate to a simple android application in which just u need is to put ur index finger on the camera and its done using Photoplethysmography
+This app brings the feature of testing Vital Signs namely, Blood Pressure, Heart Rate, Oxygen Saturation as well as Respiration Rate to a simple android application in which all youu need is to put ur index finger on the camera and its done using Photoplethysmography.
 
 #### Photoplethysmography (PPG) is a simple and low-cost optical technique that can be used to detect blood volume changes in the microvascular bed of tissue. It is often used non-invasively to make measurements at the skin surface.
 
